@@ -2,7 +2,11 @@
 	import Link from '$lib/components/ui/link/link.svelte'
 	import { ChevronDown } from 'lucide-svelte'
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu'
+	import { Menu, X } from 'lucide-svelte'
 	import { Button } from '$lib/components/ui/button'
+	import Sidebar from '$lib/components/sidebar/sidebar.svelte'
+
+	let sidebarOpen = false
 
 	const logo = {
 		src: '/logo.svg',
@@ -10,7 +14,26 @@
 	}
 </script>
 
-<header>
+<Sidebar bind:show={sidebarOpen} />
+
+<header class="block md:hidden">
+	<a href="/" class="fixed left-0 flex items-center justify-start p-4 align-middle">
+		<img src={logo.src} alt={logo.alt} class="w-3/12" />
+	</a>
+	<button
+		class="fixed right-0 z-50 flex items-center justify-center p-4 align-middle text-white"
+		on:click={() => (sidebarOpen = !sidebarOpen)}
+		aria-label="Toggle sidebar"
+	>
+		{#if sidebarOpen}
+			<X />
+		{:else}
+			<Menu />
+		{/if}
+	</button>
+</header>
+
+<header class="hidden md:block">
 	<div
 		class="fixed z-50 flex w-full items-center justify-center space-x-10 border-b border-white/10 bg-transparent py-4 align-middle backdrop-blur"
 	>

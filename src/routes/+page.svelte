@@ -2,13 +2,13 @@
 	import { reveal } from 'svelte-reveal'
 	import Navigation from '$lib/components/navigation/navigation.svelte'
 	import { Button } from '$lib/components/ui/button'
+	import Footer from '$lib/components/footer/footer.svelte'
 	import Streamer from '$lib/components/card/streamer.svelte'
 	import Arrow from '$lib/components/icons/arrow.svelte'
 	import Heart from '$lib/components/icons/heart.svelte'
 	import Crown from '$lib/components/icons/crown.svelte'
-	import Coffee from '$lib/components/icons/coffee.svelte'
 
-	const scrollToClips = () => {
+	const scrollToClipsOfTheMonth = () => {
 		const section = document.getElementById('clipsOfTheMonth')
 		if (section) {
 			section.scrollIntoView({ behavior: 'smooth' })
@@ -35,13 +35,13 @@
 						Die besten Clips der letzten Monate, von heute und aller Zeiten.
 					</p>
 					<div class="mt-10 flex items-center justify-center">
-						<Button on:click={scrollToClips}>Lets go!</Button>
+						<Button on:click={scrollToClipsOfTheMonth}>Lets go!</Button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<Arrow class="animate-bounce self-center fill-purple-500" on:click={scrollToClips} />
+		<Arrow class="animate-bounce self-center fill-purple-500" on:click={scrollToClipsOfTheMonth} />
 	</div>
 
 	<div class="flex h-screen flex-col items-center justify-center" id="clipsOfTheMonth">
@@ -52,7 +52,6 @@
 				Clips of the Month
 			</h2>
 		</div>
-
 		<div
 			class="flex flex-col items-center justify-center pt-14 md:pt-28"
 			use:reveal={{ duration: 700, reset: true }}
@@ -77,7 +76,6 @@
 				/>
 			</div>
 		</div>
-
 		<div
 			class="flex flex-col items-center justify-center"
 			use:reveal={{ duration: 700, reset: true }}
@@ -106,7 +104,6 @@
 				/>
 			</div>
 		</div>
-
 		<div
 			class="flex flex-col items-center justify-center"
 			use:reveal={{ duration: 700, reset: true }}
@@ -150,22 +147,4 @@
 	</div>
 </div>
 
-<footer>
-	<div class="flex flex-col items-center justify-center py-12">
-		<div class="flex items-center justify-center">
-			<p class="pr-2 text-white">Made with</p>
-			<Heart class="h-6 w-6" />
-			<span class="px-2 text-white">and</span>
-			<Coffee class="h-6 w-6" />
-		</div>
-		<div class="flex items-center justify-center">
-			<p class="pr-2 text-white">by</p>
-			<a
-				href="https://www.twitch.tv/dreams___________"
-				class="bg-gradient-to-t from-blue-700 to-blue-400 bg-clip-text font-bold text-transparent"
-			>
-				Dreams___________
-			</a>
-		</div>
-	</div>
-</footer>
+<Footer />

@@ -4,7 +4,7 @@
 </script>
 
 <footer>
-	<div class="flex flex-col items-center justify-center py-12">
+	<div class="flex flex-col items-center justify-center pb-8 pt-32">
 		<div class="flex items-center justify-center">
 			<p class="pr-2 text-white">Made with</p>
 			<Heart class="h-6 w-6" />
@@ -15,7 +15,7 @@
 			<p class="pr-2 text-white">by</p>
 			<a
 				href="https://www.twitch.tv/dreams___________"
-				class="bg-gradient-to-t from-blue-700 to-blue-400 bg-clip-text font-bold text-transparent"
+				class="bg-gradient-to-t from-blue-600 to-blue-400 bg-clip-text font-bold text-transparent"
 			>
 				Dreams___________
 			</a>

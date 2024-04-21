@@ -39,7 +39,7 @@
 		</div>
 
 		<Arrow
-			class="h-10 w-10 animate-bounce self-center fill-purple-500"
+			class="h-14 w-14 animate-bounce self-center fill-purple-500"
 			on:click={scrollToClipsOfTheMonth}
 		/>
 	</div>

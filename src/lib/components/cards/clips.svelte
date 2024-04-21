@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte'
 	import axios from 'axios'
 	import { Play } from 'lucide-svelte'
+	import Popup from '$lib/components/popup/popup.svelte'
 
 	export let id: string
 	export let username: string
@@ -16,6 +17,8 @@
 	}
 
 	let clips: Clip[] = []
+	let selectedClip: Clip | null = null
+	let isPopupOpen = false
 
 	const token = 'b1gdecz3mue2drfgap90exvisf0dsc'
 	const clientId = '03c7zjksu4tdubv343mddpahollgyg'
@@ -29,6 +32,7 @@
 
 		try {
 			const response = await axios.get(url, { headers })
+			console.log(response)
 			if (response.data.data.length === 0) {
 				console.error('No clips found')
 				return
@@ -46,6 +50,15 @@
 		}
 	}
 
+	const openPopup = (clip: Clip) => {
+		selectedClip = clip
+		isPopupOpen = true
+	}
+
+	const closePopup = () => {
+		isPopupOpen = false
+	}
+
 	onMount(() => {
 		getClipsBroadcasterId(id)
 	})
@@ -57,12 +70,16 @@
 <div class="flex gap-4 pt-8">
 	{#each clips as clip}
 		<div class="relative overflow-hidden">
-			<div class="relative">
+			<button
+				class="flex w-full cursor-pointer items-center justify-center border-none bg-transparent p-0 focus:outline-none"
+				aria-label="Open video popup for {clip.title}"
+				on:click={() => openPopup(clip)}
+			>
 				<img class="h-48 w-full object-cover" src={clip.thumbnail} alt={clip.title} />
 				<div class="absolute inset-0 flex items-center justify-center">
 					<Play fill="#9147ff" class="h-16 w-16 text-transparent transition-all hover:scale-110" />
 				</div>
-			</div>
+			</button>
 			<div class="pt-2">
 				<h3 class="font-medium text-white">{clip.title}</h3>
 				<p class="text-sm text-gray-500">Aufrufe: {clip.views}</p>
@@ -71,3 +88,7 @@
 		</div>
 	{/each}
 </div>
+
+{#if isPopupOpen && selectedClip}
+	<Popup title={selectedClip.title} embedUrl={selectedClip.embedUrl} onClose={closePopup} />
+{/if}

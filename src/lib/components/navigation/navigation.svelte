@@ -26,9 +26,9 @@
 		aria-label="Toggle sidebar"
 	>
 		{#if sidebarOpen}
-			<X />
+			<X class="h-8 w-8" />
 		{:else}
-			<Menu />
+			<Menu class="h-8 w-8" />
 		{/if}
 	</button>
 </header>
@@ -38,7 +38,7 @@
 		class="fixed z-50 flex w-full items-center justify-center space-x-10 border-b border-white/10 bg-transparent py-4 align-middle backdrop-blur"
 	>
 		<a href="/" class="flex items-center">
-			<img src={logo.src} alt={logo.alt} class="w-3/12" />
+			<img src={logo.src} alt={logo.alt} class="ml-4 w-3/12" />
 		</a>
 		<div class="flex items-center">
 			<Link class="flex items-center px-4 py-2 text-sm text-white" href="/startpage">
@@ -57,8 +57,6 @@
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
-						<DropdownMenu.Label>Clips of the Month</DropdownMenu.Label>
-						<DropdownMenu.Separator />
 						<DropdownMenu.Item>Knirpz</DropdownMenu.Item>
 						<DropdownMenu.Item>RonnyBerger</DropdownMenu.Item>
 						<DropdownMenu.Item>daefoxi</DropdownMenu.Item>
@@ -77,8 +75,6 @@
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
-						<DropdownMenu.Label>Hall of Fame</DropdownMenu.Label>
-						<DropdownMenu.Separator />
 						<DropdownMenu.Item>Knirpz</DropdownMenu.Item>
 						<DropdownMenu.Item>RonnyBerger</DropdownMenu.Item>
 						<DropdownMenu.Item>daefoxi</DropdownMenu.Item>

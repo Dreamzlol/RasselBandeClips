@@ -47,7 +47,7 @@
 	<div class="flex h-screen flex-col items-center justify-center" id="clipsOfTheMonth">
 		<div class="flex items-center justify-center" use:reveal={{ duration: 700, reset: true }}>
 			<h2
-				class="bg-gradient-to-t from-cyan-600 to-blue-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl"
+				class="bg-gradient-to-t from-cyan-600 to-blue-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-6xl"
 			>
 				Clips of the Month
 			</h2>
@@ -90,7 +90,7 @@
 					gradientTo="to-pink-200"
 				/>
 
-				<div class="absolute flex items-center justify-center pt-14 align-middle md:pt-2">
+				<div class="absolute mt-14 flex items-center justify-center align-middle md:mt-2">
 					<Heart class="h-[20%] w-[20%]" />
 				</div>
 
@@ -136,7 +136,7 @@
 	>
 		<div class="relative flex items-center justify-center">
 			<h2
-				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl"
+				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-6xl"
 			>
 				Hall of Fame
 			</h2>

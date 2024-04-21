@@ -4,6 +4,7 @@
 	import { Button } from '$lib/components/ui/button'
 	import Footer from '$lib/components/footer/footer.svelte'
 	import Streamer from '$lib/components/card/streamer.svelte'
+	import Clips from '$lib/components/card/clips.svelte'
 	import Arrow from '$lib/components/icons/arrow.svelte'
 	import Heart from '$lib/components/icons/heart.svelte'
 	import Crown from '$lib/components/icons/crown.svelte'
@@ -130,10 +131,7 @@
 		</div>
 	</div>
 
-	<div
-		class="flex h-screen flex-col items-center justify-center"
-		use:reveal={{ duration: 700, reset: true }}
-	>
+	<div class="flex h-screen flex-col items-center justify-center">
 		<div class="relative flex items-center justify-center">
 			<h2
 				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-6xl"
@@ -143,6 +141,10 @@
 			<Crown
 				class="absolute right-0 top-0 -mt-6 mr-4 flex h-10 w-10 items-end justify-end md:-mt-10 md:mr-6 md:h-16 md:w-16"
 			/>
+		</div>
+
+		<div class="flex flex-col items-center justify-center">
+			<Clips />
 		</div>
 	</div>
 </div>

@@ -16,7 +16,7 @@
 				class="flex h-12 w-full items-center justify-center pr-4 text-2xl font-medium text-white"
 				href="/startpage"
 			>
-				<span>Startseite</span>
+				Startseite
 			</Link>
 			<Accordion.Root class="w-full  text-white">
 				<Accordion.Item value="item-1" class="border-none">

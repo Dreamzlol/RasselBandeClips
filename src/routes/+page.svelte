@@ -26,11 +26,11 @@
 	>
 		<div class="py-32 sm:py-48 lg:py-56">
 			<h1
-				class="bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-5xl font-bold tracking-tight text-transparent md:text-6xl"
+				class="bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent md:text-6xl"
 			>
 				Die Rasselbande<br />Clips of the Month!
 			</h1>
-			<p class="md:text-md pt-4 text-center text-sm text-gray-400">
+			<p class="md:text-md px-8 pt-4 text-center text-sm text-gray-400">
 				Die besten Clips der letzten Monate, von heute und aller Zeiten.
 			</p>
 			<div class="mt-10 flex items-center justify-center">
@@ -49,11 +49,11 @@
 			use:reveal={{ duration: 500, reset: true }}
 		>
 			<h1
-				class="bg-gradient-to-t from-cyan-600 to-blue-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-6xl"
+				class="bg-gradient-to-t from-cyan-600 to-blue-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl"
 			>
 				Clips of the Month
 			</h1>
-			<p class="md:text-md pt-4 text-center text-sm text-gray-400">
+			<p class="md:text-md px-8 pt-4 text-center text-sm text-gray-400">
 				Die besten Clips der letzten Monate, von heute und aller Zeiten.
 			</p>
 		</div>
@@ -63,7 +63,7 @@
 		>
 			<div class="flex flex-wrap justify-center gap-8 p-4">
 				<StreamerCard
-					link="/knirpz"
+					link="/clips-of-the-month/knirpz"
 					avatarSrc="https://static-cdn.jtvnw.net/jtv_user_pictures/4fd0f679-952e-4ff4-a725-fbdb3bff574f-profile_image-70x70.png"
 					avatarAlt="knirpz"
 					userName="Knirpz"
@@ -71,7 +71,7 @@
 					gradientTo="to-yellow-200"
 				/>
 				<StreamerCard
-					link="/ronnyberger"
+					link="/clips-of-the-month/ronnyberger"
 					avatarSrc="https://static-cdn.jtvnw.net/jtv_user_pictures/029c4ead-9a5d-4c23-ad93-41e6b6326dbb-profile_image-70x70.png"
 					avatarAlt="ronnyberger"
 					userName="RonnyBerger"
@@ -134,7 +134,7 @@
 	<div class="flex flex-col items-center justify-center">
 		<div class="relative flex items-center justify-center">
 			<h2
-				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-6xl"
+				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl"
 				use:reveal={{ duration: 500, reset: true }}
 			>
 				Hall of Fame
@@ -142,6 +142,20 @@
 			<Crown
 				class="absolute right-0 top-0 -mt-6 mr-4 flex h-10 w-10 items-end justify-end md:-mt-10 md:mr-6 md:h-16 md:w-16"
 			/>
+		</div>
+
+		<div
+			class="flex flex-col items-center justify-center"
+			use:reveal={{ duration: 500, reset: true }}
+		>
+			<h1
+				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl"
+			>
+				Most viewed clips
+			</h1>
+			<p class="md:text-md px-8 pt-4 text-center text-sm text-gray-400">
+				Die drei am meisten angesehenen Clips of all time.
+			</p>
 		</div>
 		<div class="flex flex-col">
 			<ClipsCard username="Knirpz" id="529112648" />

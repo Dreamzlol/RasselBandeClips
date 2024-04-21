@@ -8,9 +8,9 @@
 <div
 	class:translate-x-0={show}
 	class:translate-x-full={!show}
-	class="fixed inset-y-0 right-0 z-50 w-3/4 border-l border-white/30 bg-black transition-transform duration-300 ease-in-out"
+	class="fixed inset-y-0 right-0 z-50  w-full border-l border-white/20 bg-[#070b12] backdrop-blur transition-transform duration-300 ease-in-out"
 >
-	<div class="flex h-full flex-col items-center justify-center gap-4">
+	<div class="flex h-full flex-col items-center justify-center ">
 		<div class="flex flex-col items-center justify-center gap-4 align-middle">
 			<Link
 				class="flex h-12 w-full items-center justify-center pr-4 text-2xl font-medium text-white"

@@ -17,25 +17,30 @@
 <Sidebar bind:show={sidebarOpen} />
 
 <header class="block md:hidden">
-	<a href="/" class="fixed left-0 flex items-center justify-start p-4 align-middle">
-		<img src={logo.src} alt={logo.alt} class="w-3/12" />
-	</a>
-	<button
-		class="fixed right-0 z-50 flex items-center justify-center p-4 align-middle text-white"
-		on:click={() => (sidebarOpen = !sidebarOpen)}
-		aria-label="Toggle sidebar"
-	>
-		{#if sidebarOpen}
-			<X class="h-8 w-8" />
-		{:else}
-			<Menu class="h-8 w-8" />
-		{/if}
-	</button>
+	<div class="flex flex-col">
+		<a
+			href="/"
+			class="fixed left-0 z-50 flex items-center justify-start border-b border-white/10 p-4 align-middle backdrop-blur"
+		>
+			<img src={logo.src} alt={logo.alt} class="w-3/12" />
+		</a>
+		<button
+			class="fixed right-0 z-50 flex items-center justify-center p-4 align-middle text-white"
+			on:click={() => (sidebarOpen = !sidebarOpen)}
+			aria-label="Toggle sidebar"
+		>
+			{#if sidebarOpen}
+				<X class="h-8 w-8" />
+			{:else}
+				<Menu class="h-8 w-8" />
+			{/if}
+		</button>
+	</div>
 </header>
 
 <header class="hidden md:block">
 	<div
-		class="fixed z-50 flex w-full items-center justify-center space-x-10 border-b border-white/10 bg-transparent py-4 align-middle backdrop-blur"
+		class="fixed z-50 flex w-full items-center justify-center space-x-10 border-b border-white/10 bg-transparent py-2 align-middle backdrop-blur"
 	>
 		<a href="/" class="flex items-center">
 			<img src={logo.src} alt={logo.alt} class="ml-4 w-3/12" />

@@ -71,7 +71,7 @@
 	{#each clips as clip}
 		<div class="relative overflow-hidden">
 			<button
-				class="flex w-full cursor-pointer items-center justify-center border-none bg-transparent p-0 focus:outline-none"
+				class="relative flex w-full cursor-pointer items-center justify-center border-none bg-transparent p-0 focus:outline-none"
 				aria-label="Open video popup for {clip.title}"
 				on:click={() => openPopup(clip)}
 			>

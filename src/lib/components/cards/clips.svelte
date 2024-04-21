@@ -61,7 +61,7 @@
 			</div>
 			<div class="pt-2">
 				<h3 class="font-bold">{clip.title}</h3>
-				<p class="text-sm text-gray-500">Views: {clip.views}</p>
+				<p class="text-sm text-gray-500">Aufrufe: {clip.views}</p>
 				<p class="text-sm text-gray-500">Datum: {new Date(clip.date).toLocaleDateString()}</p>
 			</div>
 		</div>

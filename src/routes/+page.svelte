@@ -2,10 +2,7 @@
 	import { reveal } from 'svelte-reveal'
 	import Navigation from '$lib/components/navigation/navigation.svelte'
 	import { Button } from '$lib/components/ui/button'
-	import Card from '$lib/components/ui/card/card.svelte'
 	import Streamer from '$lib/components/card/streamer.svelte'
-	import * as Avatar from '$lib/components/ui/avatar'
-
 	import Arrow from '$lib/components/icons/arrow.svelte'
 	import Heart from '$lib/components/icons/heart.svelte'
 	import Crown from '$lib/components/icons/crown.svelte'
@@ -95,8 +92,8 @@
 					gradientTo="pink-200"
 				/>
 
-				<div class="absolute flex items-center justify-center pt-14 align-middle md:pt-1">
-					<Heart class="h-[15%] w-[15%]" />
+				<div class="absolute flex items-center justify-center pt-14 align-middle md:pt-2">
+					<Heart class="h-[20%] w-[20%]" />
 				</div>
 
 				<Streamer
@@ -146,7 +143,9 @@
 			>
 				Hall of Fame
 			</h2>
-			<Crown class="absolute right-0 top-0 -mt-6 mr-4 md:mr-6 md:-mt-10 flex h-10 w-10 md:h-16 md:w-16 items-end justify-end" />
+			<Crown
+				class="absolute right-0 top-0 -mt-6 mr-4 flex h-10 w-10 items-end justify-end md:-mt-10 md:mr-6 md:h-16 md:w-16"
+			/>
 		</div>
 	</div>
 </div>

@@ -2,9 +2,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-	darkMode: ["class"],
 	content: ["./src/**/*.{html,js,svelte,ts}"],
-	safelist: ["dark"],
 	theme: {
 		container: {
 			center: true,
@@ -48,7 +46,6 @@ const config = {
 					DEFAULT: "hsl(var(--card) / <alpha-value>)",
 					foreground: "hsl(var(--card-foreground) / <alpha-value>)"
 				},
-				"blue-1000": "#080c14"
 			},
 			borderRadius: {
 				lg: "var(--radius)",

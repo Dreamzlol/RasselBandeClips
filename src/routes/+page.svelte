@@ -63,8 +63,8 @@
 					avatarSrc="https://static-cdn.jtvnw.net/jtv_user_pictures/4fd0f679-952e-4ff4-a725-fbdb3bff574f-profile_image-70x70.png"
 					avatarAlt="knirpz"
 					userName="Knirpz"
-					gradientFrom="yellow-600"
-					gradientTo="yellow-200"
+					gradientFrom="from-yellow-600"
+					gradientTo="to-yellow-200"
 				/>
 
 				<Streamer
@@ -72,8 +72,8 @@
 					avatarSrc="https://static-cdn.jtvnw.net/jtv_user_pictures/029c4ead-9a5d-4c23-ad93-41e6b6326dbb-profile_image-70x70.png"
 					avatarAlt="ronnyberger"
 					userName="RonnyBerger"
-					gradientFrom="purple-600"
-					gradientTo="purple-200"
+					gradientFrom="from-purple-600"
+					gradientTo="to-purple-200"
 				/>
 			</div>
 		</div>
@@ -88,8 +88,8 @@
 					avatarSrc="https://static-cdn.jtvnw.net/jtv_user_pictures/816f9be9-b34d-44d9-8d89-49b84b669201-profile_image-70x70.png"
 					avatarAlt="daefoxi"
 					userName="daefoxi"
-					gradientFrom="pink-600"
-					gradientTo="pink-200"
+					gradientFrom="from-pink-600"
+					gradientTo="to-pink-200"
 				/>
 
 				<div class="absolute flex items-center justify-center pt-14 align-middle md:pt-2">
@@ -101,8 +101,8 @@
 					avatarSrc="https://static-cdn.jtvnw.net/jtv_user_pictures/39a738f3-ca86-4478-96ce-5a2e92ead87b-profile_image-70x70.png"
 					avatarAlt="zeusspezial"
 					userName="ZeusSpezial"
-					gradientFrom="blue-600"
-					gradientTo="blue-200"
+					gradientFrom="from-blue-600"
+					gradientTo="to-blue-200"
 				/>
 			</div>
 		</div>
@@ -117,8 +117,8 @@
 					avatarSrc="https://static-cdn.jtvnw.net/jtv_user_pictures/1def2d40-4495-4f55-812c-04978231b6f2-profile_image-70x70.png"
 					avatarAlt="einsebastian"
 					userName="EinSebastian"
-					gradientFrom="red-600"
-					gradientTo="red-200"
+					gradientFrom="from-red-600"
+					gradientTo="to-red-200"
 				/>
 
 				<Streamer
@@ -126,8 +126,8 @@
 					avatarSrc="https://static-cdn.jtvnw.net/jtv_user_pictures/93d0fa70-49e6-4bdd-b0ef-1a1d12a74116-profile_image-70x70.png"
 					avatarAlt="mysteryblue"
 					userName="MysteryBlue"
-					gradientFrom="green-600"
-					gradientTo="green-200"
+					gradientFrom="from-green-600"
+					gradientTo="to-green-200"
 				/>
 			</div>
 		</div>

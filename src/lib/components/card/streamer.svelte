@@ -6,13 +6,13 @@
 	export let avatarSrc: string
 	export let avatarAlt: string
 	export let userName: string
-	export let gradientFrom: string = 'yellow-600'
-	export let gradientTo: string = 'yellow-200'
+	export let gradientFrom: string
+	export let gradientTo: string
 </script>
 
 <a href={link}>
 	<Card
-		class="flex items-center gap-4 border-white/10 bg-blue-1000 p-4 px-12 min-w-72 transition-all duration-300 hover:border-white/30 w-full"
+		class="flex w-full min-w-72 items-center gap-4 border-white/10 bg-blue-1000 p-4 px-12 transition-all duration-300 hover:border-white/30"
 	>
 		<Avatar.Root>
 			<Avatar.Image src={avatarSrc} alt={avatarAlt} />
@@ -29,11 +29,11 @@
 					></path>
 				</svg>
 			</div>
-			<span
-				class="bg-gradient-to-t from-{gradientFrom} to-{gradientTo} bg-clip-text text-xs text-transparent hover:no-underline"
+			<div
+				class="bg-gradient-to-t bg-clip-text text-xs text-transparent {gradientFrom} {gradientTo}"
 			>
 				Clips of the Month
-			</span>
+			</div>
 		</div>
 	</Card>
 </a>

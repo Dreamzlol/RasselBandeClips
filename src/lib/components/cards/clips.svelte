@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import axios from 'axios'
-
 	import { Play } from 'lucide-svelte'
+
+	export let id: string
+	export let username: string
 
 	type Clip = {
 		slug: string
@@ -17,10 +19,9 @@
 
 	const token = 'b1gdecz3mue2drfgap90exvisf0dsc'
 	const clientId = '03c7zjksu4tdubv343mddpahollgyg'
-	const broadcasterId = '529112648' // Replace with actual broadcaster ID
 
-	async function getClipsByBroadcaster(broadcasterId: string) {
-		const url = `https://api.twitch.tv/helix/clips?broadcaster_id=${broadcasterId}&first=3`
+	async function getClipsBroadcasterId(id: string) {
+		const url = `https://api.twitch.tv/helix/clips?broadcaster_id=${id}&first=3`
 		const headers = {
 			Authorization: `Bearer ${token}`,
 			'Client-Id': clientId
@@ -46,13 +47,16 @@
 	}
 
 	onMount(() => {
-		getClipsByBroadcaster(broadcasterId)
+		getClipsBroadcasterId(id)
 	})
 </script>
 
-<div class="flex gap-4 pt-14">
+<div class="flex items-start justify-start pt-14">
+	<h2 class="text-left text-3xl font-bold text-white">{username}</h2>
+</div>
+<div class="flex gap-4 pt-8">
 	{#each clips as clip}
-		<div class="relative overflow-hidden text-white">
+		<div class="relative overflow-hidden">
 			<div class="relative">
 				<img class="h-48 w-full object-cover" src={clip.thumbnail} alt={clip.title} />
 				<div class="absolute inset-0 flex items-center justify-center">
@@ -60,7 +64,7 @@
 				</div>
 			</div>
 			<div class="pt-2">
-				<h3 class="font-bold">{clip.title}</h3>
+				<h3 class="font-medium text-white">{clip.title}</h3>
 				<p class="text-sm text-gray-500">Aufrufe: {clip.views}</p>
 				<p class="text-sm text-gray-500">Datum: {new Date(clip.date).toLocaleDateString()}</p>
 			</div>

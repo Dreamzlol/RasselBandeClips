@@ -2,17 +2,16 @@
 	import Card from '$lib/components/ui/card/card.svelte'
 	import * as Avatar from '$lib/components/ui/avatar'
 
+	export let userName: string
 	export let link: string
 	export let avatarSrc: string
 	export let avatarAlt: string
-	export let userName: string
-	export let gradientFrom: string
-	export let gradientTo: string
+	export let gradientClass: string
 </script>
 
 <a href={link}>
 	<Card
-		class="flex w-full min-w-72 items-center gap-4 border-white/10 bg-blue-1000 p-4 px-12 transition-all duration-300 hover:border-white/30"
+		class="bg-blue-1000 flex w-full min-w-72 items-center gap-4 border-white/10 p-4 px-12 transition-all duration-300 hover:border-white/30"
 	>
 		<Avatar.Root>
 			<Avatar.Image src={avatarSrc} alt={avatarAlt} />
@@ -29,11 +28,7 @@
 					></path>
 				</svg>
 			</div>
-			<div
-				class="bg-gradient-to-t bg-clip-text text-xs text-transparent {gradientFrom} {gradientTo}"
-			>
-				Clips of the Month
-			</div>
+			<div class="bg-gradient-to-t bg-clip-text text-xs text-transparent {gradientClass}">Clips of the Month</div>
 		</div>
 	</Card>
 </a>

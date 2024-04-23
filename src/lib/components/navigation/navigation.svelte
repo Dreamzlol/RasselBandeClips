@@ -1,8 +1,7 @@
 <script lang="ts">
 	import Link from '$lib/components/ui/link/link.svelte'
-	import { ChevronDown } from 'lucide-svelte'
+	import { ChevronDown, Menu, X } from 'lucide-svelte'
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu'
-	import { Menu, X } from 'lucide-svelte'
 	import { Button } from '$lib/components/ui/button'
 	import Sidebar from '$lib/components/sidebar/sidebar.svelte'
 
@@ -10,7 +9,11 @@
 
 	const logo = {
 		src: '/logo.svg',
-		alt: 'logo'
+		alt: 'Logo'
+	}
+
+	const toggleSidebar = () => {
+		sidebarOpen = !sidebarOpen
 	}
 </script>
 
@@ -18,15 +21,12 @@
 
 <header class="block md:hidden">
 	<div class="flex flex-col">
-		<a
-			href="/"
-			class="fixed left-0 z-50 flex items-center justify-start border-b border-white/10 p-4 align-middle backdrop-blur"
-		>
+		<a href="/" class="fixed left-0 z-50 flex items-center justify-start border-b border-white/10 p-4 backdrop-blur">
 			<img src={logo.src} alt={logo.alt} class="w-3/12" />
 		</a>
 		<button
-			class="fixed right-0 z-50 flex items-center justify-center p-4 align-middle text-white"
-			on:click={() => (sidebarOpen = !sidebarOpen)}
+			class="fixed right-0 z-50 flex items-center justify-center p-4 text-white"
+			on:click={toggleSidebar}
 			aria-label="Toggle sidebar"
 		>
 			{#if sidebarOpen}
@@ -40,16 +40,14 @@
 
 <header class="hidden md:block">
 	<div
-		class="fixed z-50 flex w-full items-center justify-center space-x-10 border-b border-white/10 bg-transparent py-2 align-middle backdrop-blur"
+		class="fixed z-50 flex w-full items-center justify-center space-x-10 border-b border-white/10 bg-transparent py-2 backdrop-blur"
 	>
 		<a href="/" class="flex items-center">
 			<img src={logo.src} alt={logo.alt} class="ml-4 w-3/12" />
 		</a>
 		<div class="flex items-center">
 			<Link class="flex items-center px-4 py-2 text-sm text-white" href="/startpage">
-				<span
-					class="border-b border-transparent transition duration-200 ease-in-out hover:border-white"
-				>
+				<span class="border-b border-transparent transition duration-200 ease-in-out hover:border-white">
 					Startseite
 				</span>
 			</Link>

@@ -32,7 +32,6 @@
 
 		try {
 			const response = await axios.get(url, { headers })
-			console.log(response)
 			if (response.data.data.length === 0) {
 				console.error('No clips found')
 				return
@@ -65,13 +64,13 @@
 </script>
 
 <div class="flex items-start justify-start pt-14">
-	<h2 class="text-left text-3xl font-bold text-white">{username}</h2>
+	<h2 class="text-3xl font-bold text-white">{username}</h2>
 </div>
 <div class="flex gap-4 pt-8">
 	{#each clips as clip}
 		<div class="relative overflow-hidden">
 			<button
-				class="relative flex w-full cursor-pointer items-center justify-center border-none bg-transparent p-0 focus:outline-none"
+				class="relative flex w-full items-center justify-center bg-transparent p-0 focus:outline-none"
 				aria-label="Open video popup for {clip.title}"
 				on:click={() => openPopup(clip)}
 			>
@@ -82,8 +81,8 @@
 			</button>
 			<div class="pt-2">
 				<h3 class="font-medium text-white">{clip.title}</h3>
-				<p class="text-sm text-gray-500">Aufrufe: {clip.views}</p>
-				<p class="text-sm text-gray-500">Datum: {new Date(clip.date).toLocaleDateString()}</p>
+				<p class="text-sm text-gray-500">Views: {clip.views}</p>
+				<p class="text-sm text-gray-500">Date: {new Date(clip.date).toLocaleDateString()}</p>
 			</div>
 		</div>
 	{/each}

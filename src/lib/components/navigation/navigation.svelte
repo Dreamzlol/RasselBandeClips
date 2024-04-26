@@ -46,14 +46,16 @@
 			<img src={logo.src} alt={logo.alt} class="ml-4 w-3/12" />
 		</a>
 		<div class="flex items-center">
-			<Link class="flex items-center px-4 py-2 text-sm text-white" href="/startpage">
-				<span class="border-b border-transparent transition duration-200 ease-in-out hover:border-white">
+			<Link class="flex items-center px-4 py-2 " href="/startpage">
+				<span
+					class="border-b border-transparent text-sm text-white transition duration-200 ease-in-out hover:border-white"
+				>
 					Startseite
 				</span>
 			</Link>
 			<DropdownMenu.Root>
-				<DropdownMenu.Trigger class="flex items-center text-sm text-white">
-					<Button variant="link">
+				<DropdownMenu.Trigger class="flex items-center">
+					<Button class="text-sm text-white" variant="link">
 						Rasselbande
 						<ChevronDown class="ml-1 h-4 w-4" />
 					</Button>
@@ -71,7 +73,7 @@
 			</DropdownMenu.Root>
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger class="flex items-center text-sm text-white">
-					<Button variant="link">
+					<Button class="text-sm text-white" variant="link">
 						Hall of Fame
 						<ChevronDown class="ml-1 h-4 w-4" />
 					</Button>

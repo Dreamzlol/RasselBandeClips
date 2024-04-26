@@ -3,14 +3,20 @@
 	import axios from 'axios'
 	import { Play } from 'lucide-svelte'
 	import Popup from '$lib/components/popup/popup.svelte'
+	import { getLocalTimeZone } from '@internationalized/date'
+	import type { DateRange } from 'bits-ui'
 
 	export let id: string
-	export let username: string
+	export let clipCount: string = '3'
+	export let username: string | null = null
+	export let dateRange: DateRange | null = null
+
+	$: clipCount, getClipsBroadcasterId(id)
 
 	type Clip = {
 		slug: string
 		embedUrl: string
-		title: string
+		title?: string
 		views: number
 		date: string
 		thumbnail: string
@@ -24,7 +30,12 @@
 	const clientId = '03c7zjksu4tdubv343mddpahollgyg'
 
 	async function getClipsBroadcasterId(id: string) {
-		const url = `https://api.twitch.tv/helix/clips?broadcaster_id=${id}&first=3`
+		const startDate = dateRange?.start?.toDate(getLocalTimeZone()).toISOString()
+		const endDate = dateRange?.end?.toDate(getLocalTimeZone()).toISOString()
+		const url = dateRange
+			? `https://api.twitch.tv/helix/clips?broadcaster_id=${id}&first=${clipCount}&started_at=${startDate}&ended_at=${endDate}`
+			: `https://api.twitch.tv/helix/clips?broadcaster_id=${id}&first=${clipCount}`
+
 		const headers = {
 			Authorization: `Bearer ${token}`,
 			'Client-Id': clientId
@@ -61,14 +72,20 @@
 	onMount(() => {
 		getClipsBroadcasterId(id)
 	})
+
+	$: if (dateRange) {
+		getClipsBroadcasterId(id)
+	}
 </script>
 
-<div class="flex items-start justify-start pt-14">
-	<h2 class="text-3xl font-bold text-white">{username}</h2>
+<div class="flex items-start justify-start pt-14 py-8">
+	{#if username}
+		<h2 class="text-3xl font-bold text-white">{username}</h2>
+	{/if}
 </div>
-<div class="flex gap-4 pt-8">
+<div class="grid grid-cols-2 gap-4 gap-x-8 gap-y-8 md:grid-cols-3">
 	{#each clips as clip}
-		<div class="relative overflow-hidden">
+		<div class="relative w-full overflow-hidden">
 			<button
 				class="relative flex w-full items-center justify-center bg-transparent p-0 focus:outline-none"
 				aria-label="Open video popup for {clip.title}"

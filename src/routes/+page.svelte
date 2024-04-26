@@ -68,8 +68,6 @@
 	]
 </script>
 
-<Navigation />
-
 <main class="container flex flex-col">
 	<section class="flex h-screen flex-col items-center justify-center" use:reveal={{ duration: 500, reset: true }}>
 		<div class="py-32 sm:py-48 lg:py-56">
@@ -140,5 +138,3 @@
 		</div>
 	</section>
 </main>
-
-<Footer />

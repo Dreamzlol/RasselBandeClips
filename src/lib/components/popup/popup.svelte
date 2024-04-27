@@ -1,32 +1,38 @@
 <script lang="ts">
 	import { X } from 'lucide-svelte'
+	import { createEventDispatcher } from 'svelte'
 
 	export let embedUrl: string
 	export let title: string
-	export let onClose: () => void
+
+	const dispatch = createEventDispatcher()
+
+	const handleClose = () => {
+		dispatch('close')
+	}
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Escape') {
-			onClose()
+			handleClose()
 		}
 	}
 
-	const iframeSrc = `${embedUrl}&parent=example.com&parent=localhost`
+	$: iframeSrc = `${embedUrl}&parent=example.com&parent=localhost`
 </script>
 
 {#if embedUrl}
 	<div
-		class="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+		class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm"
 		role="button"
 		tabindex="0"
-		on:click={onClose}
+		on:click={handleClose}
 		on:keydown={handleKeyDown}
 		aria-label="Close"
 	>
 		<h2 class="absolute top-0 z-50 mt-8 p-8 text-xl text-white md:text-4xl">{title}</h2>
 		<button
 			class="absolute right-0 top-0 z-50 p-8 transition duration-300 hover:rotate-90"
-			on:click={onClose}
+			on:click={handleClose}
 			on:keydown={handleKeyDown}
 			aria-label="Close"
 			tabindex="0"

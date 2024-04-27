@@ -24,9 +24,7 @@
 			>
 				Die Rasselbande<br />Clips of the Month!
 			</h1>
-			<p class="md:text-md px-8 pt-4 text-center text-sm text-gray-400">
-				Die besten Clips der letzten Monate, von heute und aller Zeiten.
-			</p>
+			<p class="md:text-md px-8 pt-4 text-center text-sm text-gray-400">Die besten Clips der letzten Monate, von heute und aller Zeiten.</p>
 			<div class="mt-10 flex items-center justify-center">
 				<Button on:click={scrollToClipsOfTheMonth}>Lets go!</Button>
 			</div>

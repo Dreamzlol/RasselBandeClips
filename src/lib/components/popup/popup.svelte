@@ -17,7 +17,8 @@
 		}
 	}
 
-	$: iframeSrc = `${embedUrl}&parent=example.com&parent=localhost`
+	const isDevelopment = process.env.NODE_ENV === 'development'
+	$: iframeSrc = `${embedUrl}&parent=${isDevelopment ? 'localhost' : 'rassel-bande-clips.vercel.app'}`
 </script>
 
 {#if embedUrl}

@@ -45,7 +45,7 @@
 			Clips
 		</h2>
 
-		<div class="mt-14 flex flex-col">
+		<div class="my-8 flex flex-col py-8">
 			<div class="flex gap-2">
 				<Popover.Root openFocus>
 					<Popover.Trigger asChild let:builder>

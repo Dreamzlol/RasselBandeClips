@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { reveal } from 'svelte-reveal'
 	import { Button } from '$lib/components/ui/button'
-	import StreamerCard from '$lib/components/cards/streamer.svelte'
-	import ClipsCard from '$lib/components/cards/clips.svelte'
+	import BroadcasterCard from '$lib/components/cards/broadcasterCard.svelte'
+	import ClipsCard from '$lib/components/cards/clipsCard.svelte'
 	import type { PageData } from './$types'
 	import Arrow from '$lib/components/icons/arrow.svelte'
 	import Heart from '$lib/components/icons/heart.svelte'
@@ -52,7 +52,7 @@
 			<Heart class="absolute h-[15%] w-[15%]" />
 			<div class="grid w-full max-w-4xl grid-cols-1 gap-8 p-4 md:grid-cols-2">
 				{#each data.broadcasters as broadcaster}
-					<StreamerCard
+					<BroadcasterCard
 						userName={broadcaster.userName}
 						link={broadcaster.linkClips}
 						avatarSrc={broadcaster.avatarSrc}

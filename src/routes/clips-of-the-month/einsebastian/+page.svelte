@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ClipsOfMonth from '$lib/components/clipsOfTheMonth/Streamer.svelte'
+	import Broadcaster from '$lib/components/broadcaster/broadcaster.svelte'
 </script>
 
-<ClipsOfMonth amount="6" username="EinSebastian" id="427135151" />
+<Broadcaster amount="6" username="EinSebastian" id="427135151" />

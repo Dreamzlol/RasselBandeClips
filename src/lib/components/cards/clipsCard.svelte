@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { DateRange } from 'bits-ui'
-
 	import { onMount } from 'svelte'
 	import { Play } from 'lucide-svelte'
 	import Popup from '$lib/components/popup/popup.svelte'
@@ -18,12 +17,24 @@
 	let isPopupOpen = false
 
 	const fetchClips = async () => {
+		const params: {
+			broadcaster_id: string
+			first: string
+			started_at?: string
+			ended_at?: string
+		} = {
+			broadcaster_id: id,
+			first: clipCount
+		}
+
+		if (dateRange && dateRange.start && dateRange.end) {
+			params.started_at = new Date(dateRange.start.toString()).toISOString()
+			params.ended_at = new Date(dateRange.end.toString()).toISOString()
+		}
+
 		try {
 			const response = await axios.get('https://api.twitch.tv/helix/clips', {
-				params: {
-					broadcaster_id: id,
-					first: clipCount
-				},
+				params: params,
 				headers: {
 					'Client-ID': env.PUBLIC_TWITCH_CLIENT_ID,
 					Authorization: `Bearer ${env.PUBLIC_TWITCH_ACCESS_TOKEN}`
@@ -54,32 +65,32 @@
 
 	onMount(fetchClips)
 
-	$: if (dateRange) {
+	$: if (dateRange || clipCount) {
 		fetchClips()
 	}
 </script>
 
 {#if userName}
-	<h2 class="py-8 pt-14 text-3xl font-bold text-white">{userName}</h2>
+	<h2 class="py-8 pt-14 text-4xl font-bold text-white">{userName}</h2>
 {/if}
 
 <div class="grid grid-cols-2 gap-4 gap-x-8 gap-y-8 md:grid-cols-3">
 	{#each clips as clip}
-		<div class="relative w-full overflow-hidden">
+		<div class="relative overflow-hidden">
 			<button
-				class="relative flex w-full items-center justify-center bg-transparent p-0 focus:outline-none"
-				aria-label="Open video popup for {clip.title}"
+				class="relative flex items-center justify-center bg-transparent p-0 focus:outline-none"
+				aria-label="{clip.title}"
 				on:click={() => openPopup(clip)}
 			>
-				<img class="h-48 w-full object-cover" src={clip.thumbnail} alt={clip.title} />
+				<img class="object-cover" src={clip.thumbnail} alt={clip.title} />
 				<div class="absolute inset-0 flex items-center justify-center">
-					<Play fill="#9147ff" class="h-16 w-16 text-transparent transition-all hover:scale-110" />
+					<Play fill="#9147ff" class="h-14 w-14 md:h-24 md:w-24 text-transparent transition-all hover:scale-110" />
 				</div>
 			</button>
 			<div class="pt-2">
 				<h3 class="font-medium text-white">{clip.title}</h3>
 				<p class="text-sm text-gray-500">Views: {clip.views}</p>
-				<p class="text-sm text-gray-500">Date: {new Date(clip.date).toLocaleDateString()}</p>
+				<p class="text-sm text-gray-500">Datum: {new Date(clip.date).toLocaleDateString()}</p>
 			</div>
 		</div>
 	{/each}

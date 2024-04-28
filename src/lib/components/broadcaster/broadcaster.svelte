@@ -9,11 +9,11 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js'
 	import { Button } from '$lib/components/ui/button/index.js'
 
-	export let amount: string
+	export let amount: string = '3'
 	export let username: string
 	export let id: string
 
-	const df = new DateFormatter('de-DE', {
+	const dateFormatter = new DateFormatter('de-DE', {
 		dateStyle: 'medium'
 	})
 
@@ -57,16 +57,21 @@
 							<CalendarIcon class="mr-2 h-4 w-4" />
 							{#if value && value.start}
 								{#if value.end}
-									{df.format(value.start.toDate(getLocalTimeZone()))} - {df.format(
+									{dateFormatter.format(value.start.toDate(getLocalTimeZone()))} - {dateFormatter.format(
 										value.end.toDate(getLocalTimeZone())
 									)}
+									({Math.round(
+										(value.end.toDate(getLocalTimeZone()).getTime() -
+											value.start.toDate(getLocalTimeZone()).getTime()) /
+											(1000 * 60 * 60 * 24)
+									)} Tage)
 								{:else}
-									{df.format(value.start.toDate(getLocalTimeZone()))}
+									{dateFormatter.format(value.start.toDate(getLocalTimeZone()))}
 								{/if}
 							{:else if startValue}
-								{df.format(startValue.toDate(getLocalTimeZone()))}
+								{dateFormatter.format(startValue.toDate(getLocalTimeZone()))}
 							{:else}
-								Pick a date
+								Wähle ein Datum
 							{/if}
 						</Button>
 					</Popover.Trigger>
@@ -93,6 +98,6 @@
 			</div>
 		</div>
 
-		<ClipsCard {id} dateRange={value} clipCount={amount} />
+		<ClipsCard {id} bind:dateRange={value} clipCount={amount} />
 	</div>
 </section>

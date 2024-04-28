@@ -13,7 +13,7 @@
 	export let username: string
 	export let id: string
 
-	const df = new DateFormatter('de-De', {
+	const df = new DateFormatter('de-DE', {
 		dateStyle: 'medium'
 	})
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DateRange } from 'bits-ui'
-	
+
 	import { onMount } from 'svelte'
 	import { Play } from 'lucide-svelte'
 	import Popup from '$lib/components/popup/popup.svelte'

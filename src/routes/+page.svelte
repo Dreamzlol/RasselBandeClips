@@ -24,9 +24,11 @@
 			>
 				Die Rasselbande<br />Clips of the Month!
 			</h1>
-			<p class="md:text-md px-8 pt-4 text-center text-sm text-gray-400">Die besten Clips der letzten Monate, von heute und aller Zeiten.</p>
-			<div class="mt-10 flex items-center justify-center">
-				<Button on:click={scrollToClipsOfTheMonth}>Lets go!</Button>
+			<p class="md:text-md px-8 pt-4 text-center text-sm text-gray-400">
+				Die besten Clips der letzten Monate, von heute und aller Zeiten.
+			</p>
+			<div class="mt-12 flex items-center justify-center">
+				<Button class="bg-white" on:click={scrollToClipsOfTheMonth}>Lets go!</Button>
 			</div>
 		</div>
 		<Arrow class="h-14 w-14 animate-bounce self-center fill-purple-500" on:click={scrollToClipsOfTheMonth} />
@@ -52,10 +54,10 @@
 				{#each data.broadcasters as broadcaster}
 					<StreamerCard
 						userName={broadcaster.userName}
-						link={broadcaster.link}
+						link={broadcaster.linkClips}
 						avatarSrc={broadcaster.avatarSrc}
 						avatarAlt={broadcaster.avatarAlt}
-						gradientClass={broadcaster.gradientClass}
+						gradientClass={broadcaster.colorScheme}
 					/>
 				{/each}
 			</div>

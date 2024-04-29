@@ -1,14 +1,18 @@
 <script lang="ts">
 	import { X } from 'lucide-svelte'
-	import { createEventDispatcher } from 'svelte'
+	import { createEventDispatcher, onMount, onDestroy } from 'svelte'
 
 	export let embedUrl: string
 	export let title: string | undefined
+
+	const isDevelopment = process.env.NODE_ENV === 'development'
+	$: iframeSrc = `${embedUrl}&parent=${isDevelopment ? 'localhost' : 'rassel-bande-clips.vercel.app'}`
 
 	const dispatch = createEventDispatcher()
 
 	const handleClose = () => {
 		dispatch('close')
+		removeNoScroll()
 	}
 
 	const handleKeyDown = (event: KeyboardEvent) => {
@@ -17,8 +21,16 @@
 		}
 	}
 
-	const isDevelopment = process.env.NODE_ENV === 'development'
-	$: iframeSrc = `${embedUrl}&parent=${isDevelopment ? 'localhost' : 'rassel-bande-clips.vercel.app'}`
+	const addNoScroll = () => document.body.classList.add('overflow-hidden')
+	const removeNoScroll = () => document.body.classList.remove('overflow-hidden')
+
+	onMount(() => {
+		addNoScroll()
+	})
+
+	onDestroy(() => {
+		removeNoScroll()
+	})
 </script>
 
 {#if embedUrl}

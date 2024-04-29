@@ -46,12 +46,12 @@
 		</h2>
 
 		<div class="my-8 flex flex-col py-8">
-			<div class="flex gap-2">
+			<div class="flex flex-wrap items-center justify-center gap-2">
 				<Popover.Root openFocus>
 					<Popover.Trigger asChild let:builder>
 						<Button
 							variant="outline"
-							class={cn('w-[300px] justify-start bg-white text-left font-normal', !value && 'text-muted-foreground')}
+							class={cn('justify-start bg-white text-left font-normal w-full', !value && 'text-muted-foreground')}
 							builders={[builder]}
 						>
 							<CalendarIcon class="mr-2 h-4 w-4" />
@@ -82,7 +82,7 @@
 
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger asChild let:builder>
-						<Button class="bg-white" variant="outline" builders={[builder]}>Anzahl der Clips</Button>
+						<Button class="bg-white w-full" variant="outline" builders={[builder]}>Anzahl der Clips</Button>
 					</DropdownMenu.Trigger>
 					<DropdownMenu.Content class="w-1/4">
 						<DropdownMenu.Label>Anzahl der Clips</DropdownMenu.Label>

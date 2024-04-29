@@ -1,23 +1,24 @@
 <script lang="ts">
-	import Link from '$lib/components/ui/link/link.svelte'
 	import { ChevronDown, Menu, X } from 'lucide-svelte'
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu'
 	import { Button } from '$lib/components/ui/button'
 	import Sidebar from '$lib/components/sidebar/sidebar.svelte'
+	import type { PageData } from '../../../routes/$types'
 
+	export let data: PageData
 	let sidebarOpen = false
+
+	const toggleSidebar = () => {
+		sidebarOpen = !sidebarOpen
+	}
 
 	const logo = {
 		src: '/logo.svg',
 		alt: 'Logo'
 	}
-
-	const toggleSidebar = () => {
-		sidebarOpen = !sidebarOpen
-	}
 </script>
 
-<Sidebar bind:show={sidebarOpen} />
+<Sidebar bind:show={sidebarOpen} {data} onLinkClick={toggleSidebar} />
 
 <header class="block md:hidden">
 	<div class="flex flex-col">
@@ -46,28 +47,29 @@
 			<img src={logo.src} alt={logo.alt} class="ml-4 w-3/12" />
 		</a>
 		<div class="flex items-center">
-			<Link class="flex items-center px-4 py-2 " href="/startpage">
+			<a class="flex items-center px-4 py-2" href="/">
 				<span
 					class="border-b border-transparent text-sm text-white transition duration-200 ease-in-out hover:border-white"
 				>
 					Startseite
 				</span>
-			</Link>
+			</a>
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger class="flex items-center">
 					<Button class="text-sm text-white" variant="link">
-						Rasselbande
+						Clips of the Month
 						<ChevronDown class="ml-1 h-4 w-4" />
 					</Button>
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
-						<DropdownMenu.Item>Knirpz</DropdownMenu.Item>
-						<DropdownMenu.Item>RonnyBerger</DropdownMenu.Item>
-						<DropdownMenu.Item>daefoxi</DropdownMenu.Item>
-						<DropdownMenu.Item>ZeusSpezial</DropdownMenu.Item>
-						<DropdownMenu.Item>EinSebastian</DropdownMenu.Item>
-						<DropdownMenu.Item>MysteryBlue</DropdownMenu.Item>
+						{#each data.broadcasters as broadcaster}
+							<DropdownMenu.Item>
+								<a href={broadcaster.linkClips}>
+									{broadcaster.userName}
+								</a>
+							</DropdownMenu.Item>
+						{/each}
 					</DropdownMenu.Group>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
@@ -80,12 +82,13 @@
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
-						<DropdownMenu.Item>Knirpz</DropdownMenu.Item>
-						<DropdownMenu.Item>RonnyBerger</DropdownMenu.Item>
-						<DropdownMenu.Item>daefoxi</DropdownMenu.Item>
-						<DropdownMenu.Item>ZeusSpezial</DropdownMenu.Item>
-						<DropdownMenu.Item>EinSebastian</DropdownMenu.Item>
-						<DropdownMenu.Item>MysteryBlue</DropdownMenu.Item>
+						{#each data.broadcasters as broadcaster}
+							<DropdownMenu.Item>
+								<a href={broadcaster.linkHall}>
+									{broadcaster.userName}
+								</a>
+							</DropdownMenu.Item>
+						{/each}
 					</DropdownMenu.Group>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>

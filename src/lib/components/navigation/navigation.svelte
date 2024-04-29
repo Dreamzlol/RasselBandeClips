@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { ChevronDown, Menu, X } from 'lucide-svelte'
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu'
-	import { Button } from '$lib/components/ui/button'
-	import Sidebar from '$lib/components/sidebar/sidebar.svelte'
 	import type { PageData } from '../../../routes/$types'
+	import Sidebar from '$lib/components/sidebar/sidebar.svelte'
+	import { Button } from '$lib/components/ui/button'
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu'
+	import { ChevronDown, Menu, X } from 'lucide-svelte'
 
 	export let data: PageData
 	let sidebarOpen = false

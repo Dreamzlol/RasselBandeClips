@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { X } from 'lucide-svelte'
-	import { createEventDispatcher, onMount, onDestroy } from 'svelte'
+	import { createEventDispatcher, onDestroy, onMount } from 'svelte'
 
 	export let embedUrl: string
 	export let title: string | undefined

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { DateRange } from 'bits-ui'
-	import { onMount } from 'svelte'
-	import { Play } from 'lucide-svelte'
-	import Popup from '$lib/components/popup/popup.svelte'
-	import { env } from '$env/dynamic/public'
-	import axios from 'axios'
 	import type { Clip, TwitchClip } from '$lib/types'
+	import type { DateRange } from 'bits-ui'
+	import { env } from '$env/dynamic/public'
+	import Popup from '$lib/components/popup/popup.svelte'
+	import axios from 'axios'
+	import { Play } from 'lucide-svelte'
+	import { onMount } from 'svelte'
 
 	export let id: string
 	export let clipCount: string = '3'
@@ -79,12 +79,12 @@
 		<div class="relative overflow-hidden">
 			<button
 				class="relative flex items-center justify-center bg-transparent p-0 focus:outline-none"
-				aria-label="{clip.title}"
+				aria-label={clip.title}
 				on:click={() => openPopup(clip)}
 			>
 				<img class="object-cover" src={clip.thumbnail} alt={clip.title} />
 				<div class="absolute inset-0 flex items-center justify-center">
-					<Play fill="#9147ff" class="h-14 w-14 md:h-24 md:w-24 text-transparent transition-all hover:scale-110" />
+					<Play fill="#9147ff" class="h-14 w-14 text-transparent transition-all hover:scale-110 md:h-24 md:w-24" />
 				</div>
 			</button>
 			<div class="pt-2">

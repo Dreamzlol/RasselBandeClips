@@ -37,7 +37,7 @@
 							<a href={broadcaster.linkClips} class="block py-2 text-white" on:click={handleLinkClick}>
 								{broadcaster.userName}
 							</a>
-						{/each}     
+						{/each}
 					</Accordion.Content>
 				</Accordion.Item>
 			</Accordion.Root>

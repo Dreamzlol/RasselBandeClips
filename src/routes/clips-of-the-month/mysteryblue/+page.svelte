@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Broadcaster from '$lib/components/broadcaster/broadcaster.svelte'
 	import type { PageData } from './$types'
+	import Broadcaster from '$lib/components/broadcaster/broadcaster.svelte'
 
 	export let data: PageData
 

@@ -1,11 +1,4 @@
-<svg
-	{...$$restProps}
-	width="5%"
-	height="5%"
-	viewBox="0 0 385 385"
-	fill="none"
-	xmlns="http://www.w3.org/2000/svg"
->
+<svg {...$$restProps} width="5%" height="5%" viewBox="0 0 385 385" fill="none" xmlns="http://www.w3.org/2000/svg">
 	<path d="M336.875 288.75H48.125V312.812H336.875V288.75Z" fill="#E2B436" />
 	<path d="M336.875 264.688H48.125V288.75H336.875V264.688Z" fill="#F5F38E" />
 	<path d="M336.875 240.625H48.125V264.688H336.875V240.625Z" fill="#CF8934" />

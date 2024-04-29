@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Card from '$lib/components/ui/card/card.svelte'
 	import * as Avatar from '$lib/components/ui/avatar'
+	import Card from '$lib/components/ui/card/card.svelte'
 
 	export let userName: string
 	export let link: string

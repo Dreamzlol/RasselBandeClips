@@ -1,25 +1,25 @@
 <script lang="ts">
-	import { Calendar as CalendarPrimitive } from "bits-ui";
-	import * as Calendar from "./index.js";
-	import { cn } from "$lib/utils.js";
+	import { cn } from '$lib/utils.js'
+	import { Calendar as CalendarPrimitive } from 'bits-ui'
+	import * as Calendar from './index.js'
 
-	type $$Props = CalendarPrimitive.Props;
+	type $$Props = CalendarPrimitive.Props
 
-	type $$Events = CalendarPrimitive.Events;
+	type $$Events = CalendarPrimitive.Events
 
-	export let value: $$Props["value"] = undefined;
-	export let placeholder: $$Props["placeholder"] = undefined;
-	export let weekdayFormat: $$Props["weekdayFormat"] = "short";
+	export let value: $$Props['value'] = undefined
+	export let placeholder: $$Props['placeholder'] = undefined
+	export let weekdayFormat: $$Props['weekdayFormat'] = 'short'
 
-	let className: $$Props["class"] = undefined;
-	export { className as class };
+	let className: $$Props['class'] = undefined
+	export { className as class }
 </script>
 
 <CalendarPrimitive.Root
 	bind:value
 	bind:placeholder
 	{weekdayFormat}
-	class={cn("p-3", className)}
+	class={cn('p-3', className)}
 	{...$$restProps}
 	on:keydown
 	let:months

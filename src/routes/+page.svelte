@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types'
-
 	import BroadcasterCard from '$lib/components/cards/broadcasterCard.svelte'
 	import ClipsCard from '$lib/components/cards/clipsCard.svelte'
 	import Arrow from '$lib/components/icons/arrow.svelte'

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { DateValue } from '@internationalized/date'
 	import type { DateRange } from 'bits-ui'
-
 	import { CalendarDate, DateFormatter, getLocalTimeZone } from '@internationalized/date'
 	import ClipsCard from '$lib/components/cards/clipsCard.svelte'
 	import { Button } from '$lib/components/ui/button/index.js'

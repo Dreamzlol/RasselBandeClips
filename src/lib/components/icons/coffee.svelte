@@ -1,9 +1,4 @@
-<svg
-	{...$$restProps}
-	id="Layer_1"
-	data-name="Layer 1"
-	xmlns="http://www.w3.org/2000/svg"
-	viewBox="0 0 16 16"
+<svg {...$$restProps} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
 	><defs
 		><style>
 			.cls-1 {
@@ -61,34 +56,26 @@
 		y="9"
 		width="1"
 		height="1"
-	/><rect class="cls-3" x="12" y="9" width="1" height="1" /><rect
+	/><rect class="cls-3" x="12" y="9" width="1" height="1" /><rect class="cls-1" y="5" width="1" height="6" /><polygon
 		class="cls-1"
+		points="12 6 2 6 2 10 3 10 3 11 11 11 11 10 12 10 12 6"
+	/><rect class="cls-2" x="14" y="6" width="1" height="3" /><rect
+		class="cls-2"
+		x="12"
+		y="7"
+		width="1"
+		height="2"
+	/><rect class="cls-1" x="15" y="6" width="1" height="3" /><rect
+		class="cls-1"
+		x="13"
+		y="6"
+		width="1"
+		height="3"
+	/><rect class="cls-3" x="12" y="6" width="1" height="1" /><rect
+		class="cls-1"
+		x="14"
 		y="5"
 		width="1"
-		height="6"
-	/><polygon class="cls-1" points="12 6 2 6 2 10 3 10 3 11 11 11 11 10 12 10 12 6" /><rect
-		class="cls-2"
-		x="14"
-		y="6"
-		width="1"
-		height="3"
-	/><rect class="cls-2" x="12" y="7" width="1" height="2" /><rect
-		class="cls-1"
-		x="15"
-		y="6"
-		width="1"
-		height="3"
-	/><rect class="cls-1" x="13" y="6" width="1" height="3" /><rect
-		class="cls-3"
-		x="12"
-		y="6"
-		width="1"
 		height="1"
-	/><rect class="cls-1" x="14" y="5" width="1" height="1" /><rect
-		class="cls-1"
-		x="1"
-		y="4"
-		width="13"
-		height="1"
-	/></svg
+	/><rect class="cls-1" x="1" y="4" width="13" height="1" /></svg
 >

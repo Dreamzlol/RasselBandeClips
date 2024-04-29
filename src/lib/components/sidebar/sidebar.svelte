@@ -1,10 +1,15 @@
 <script lang="ts">
 	import type { PageData } from '../../../routes/$types'
 	import * as Accordion from '$lib/components/ui/accordion/index.js'
+	import { createEventDispatcher } from 'svelte'
 
 	export let data: PageData
 	export let show: boolean
-	export let onLinkClick: () => void
+	const dispatch = createEventDispatcher()
+
+	const handleLinkClick = () => {
+		dispatch('linkClick')
+	}
 </script>
 
 <div
@@ -17,10 +22,11 @@
 			<a
 				class="flex h-12 w-full items-center justify-center pr-4 text-2xl font-medium text-white"
 				href="/"
-				on:click={onLinkClick}
+				on:click={handleLinkClick}
 			>
 				Startseite
 			</a>
+
 			<Accordion.Root class="w-full text-white">
 				<Accordion.Item value="item-1" class="border-none">
 					<Accordion.Trigger class="flex h-12 w-full items-center justify-center text-2xl">
@@ -28,13 +34,14 @@
 					</Accordion.Trigger>
 					<Accordion.Content class="w-full">
 						{#each data.broadcasters as broadcaster}
-							<a href={broadcaster.linkClips} class="block py-2 text-white" on:click={onLinkClick}
-								>{broadcaster.userName}</a
-							>
-						{/each}
+							<a href={broadcaster.linkClips} class="block py-2 text-white" on:click={handleLinkClick}>
+								{broadcaster.userName}
+							</a>
+						{/each}     
 					</Accordion.Content>
 				</Accordion.Item>
 			</Accordion.Root>
+
 			<Accordion.Root class="w-full text-white">
 				<Accordion.Item value="item-1" class="border-none">
 					<Accordion.Trigger class="flex h-12 w-full items-center justify-center text-2xl">
@@ -42,9 +49,9 @@
 					</Accordion.Trigger>
 					<Accordion.Content class="w-full">
 						{#each data.broadcasters as broadcaster}
-							<a href={broadcaster.linkHall} class="block py-2 text-white" on:click={onLinkClick}
-								>{broadcaster.userName}</a
-							>
+							<a href={broadcaster.linkHall} class="block py-2 text-white" on:click={handleLinkClick}>
+								{broadcaster.userName}
+							</a>
 						{/each}
 					</Accordion.Content>
 				</Accordion.Item>

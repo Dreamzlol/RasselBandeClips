@@ -18,7 +18,7 @@
 	}
 </script>
 
-<Sidebar bind:show={sidebarOpen} {data} onLinkClick={toggleSidebar} />
+<Sidebar bind:show={sidebarOpen} {data} on:linkClick={toggleSidebar} />
 
 <header class="block md:hidden">
 	<div class="flex flex-col">
@@ -47,13 +47,8 @@
 			<img src={logo.src} alt={logo.alt} class="ml-4 w-3/12" />
 		</a>
 		<div class="flex items-center">
-			<a class="flex items-center px-4 py-2" href="/">
-				<span
-					class="border-b border-transparent text-sm text-white transition duration-200 ease-in-out hover:border-white"
-				>
-					Startseite
-				</span>
-			</a>
+			<Button class="text-sm text-white" variant="link" href="/">Startseite</Button>
+
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger class="flex items-center">
 					<Button class="text-sm text-white" variant="link">
@@ -64,17 +59,16 @@
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
 						{#each data.broadcasters as broadcaster}
-							<DropdownMenu.Item>
-								<a href={broadcaster.linkClips}>
-									{broadcaster.userName}
-								</a>
+							<DropdownMenu.Item class="cursor-pointer text-sm text-black" href={broadcaster.linkClips}>
+								{broadcaster.userName}
 							</DropdownMenu.Item>
 						{/each}
 					</DropdownMenu.Group>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
+
 			<DropdownMenu.Root>
-				<DropdownMenu.Trigger class="flex items-center text-sm text-white">
+				<DropdownMenu.Trigger class="flex items-center">
 					<Button class="text-sm text-white" variant="link">
 						Hall of Fame
 						<ChevronDown class="ml-1 h-4 w-4" />
@@ -83,10 +77,8 @@
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
 						{#each data.broadcasters as broadcaster}
-							<DropdownMenu.Item>
-								<a href={broadcaster.linkHall}>
-									{broadcaster.userName}
-								</a>
+							<DropdownMenu.Item class="cursor-pointer text-sm text-black" href={broadcaster.linkHall}>
+								{broadcaster.userName}
 							</DropdownMenu.Item>
 						{/each}
 					</DropdownMenu.Group>

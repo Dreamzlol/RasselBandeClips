@@ -1,12 +1,13 @@
 <script lang="ts">
-	import { reveal } from 'svelte-reveal'
-	import { Button } from '$lib/components/ui/button'
+	import type { PageData } from './$types'
+
 	import BroadcasterCard from '$lib/components/cards/broadcasterCard.svelte'
 	import ClipsCard from '$lib/components/cards/clipsCard.svelte'
-	import type { PageData } from './$types'
 	import Arrow from '$lib/components/icons/arrow.svelte'
-	import Heart from '$lib/components/icons/heart.svelte'
 	import Crown from '$lib/components/icons/crown.svelte'
+	import Heart from '$lib/components/icons/heart.svelte'
+	import { Button } from '$lib/components/ui/button'
+	import { reveal } from 'svelte-reveal'
 
 	export let data: PageData
 
@@ -20,7 +21,7 @@
 	<section class="flex h-screen flex-col items-center justify-center" use:reveal={{ duration: 500, reset: true }}>
 		<div class="py-32 sm:py-48 lg:py-56">
 			<h1
-				class="bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-5xl font-bold tracking-tight text-transparent md:text-7xl"
+				class="bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-5xl font-bold text-transparent md:text-7xl"
 			>
 				Die Rasselbande<br />Clips of the Month!
 			</h1>
@@ -28,7 +29,9 @@
 				Die besten Clips der letzten Monate, von heute und aller Zeiten.
 			</p>
 			<div class="mt-12 flex items-center justify-center">
-				<Button class="bg-white" on:click={scrollToClipsOfTheMonth}>Lets go!</Button>
+				<Button class="bg-white" on:click={scrollToClipsOfTheMonth}>
+					Drück mich! <Heart class="mx-1 inline-block h-5 w-5" />
+				</Button>
 			</div>
 		</div>
 		<Arrow class="h-14 w-14 animate-bounce self-center fill-purple-500" on:click={scrollToClipsOfTheMonth} />
@@ -37,7 +40,7 @@
 	<section class="flex h-screen flex-col items-center justify-center" id="clipsOfTheMonth">
 		<div class="flex flex-col items-center justify-center" use:reveal={{ duration: 500, reset: true }}>
 			<h1
-				class="bg-gradient-to-t from-blue-600 to-cyan-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-7xl"
+				class="bg-gradient-to-t from-blue-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent md:text-7xl"
 			>
 				Clips of the Month
 			</h1>
@@ -67,7 +70,7 @@
 	<section class="flex flex-col items-center justify-center">
 		<div class="relative flex items-center justify-center">
 			<h2
-				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-7xl"
+				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-5xl font-bold text-transparent md:text-7xl"
 				use:reveal={{ duration: 500, reset: true }}
 			>
 				Hall of Fame
@@ -78,7 +81,7 @@
 		</div>
 		<div class="flex flex-col items-center justify-center" use:reveal={{ duration: 500, reset: true }}>
 			<h1
-				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-7xl"
+				class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-3xl font-bold text-transparent md:text-4xl"
 			>
 				Most viewed clips
 			</h1>

@@ -1,17 +1,20 @@
 <script lang="ts">
-	import ClipsCard from '$lib/components/cards/clipsCard.svelte'
-	import CalendarIcon from 'lucide-svelte/icons/calendar'
+	import type { DateValue } from '@internationalized/date'
 	import type { DateRange } from 'bits-ui'
-	import { CalendarDate, DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date'
-	import { cn } from '$lib/utils.js'
-	import { RangeCalendar } from '$lib/components/ui/range-calendar/index.js'
-	import * as Popover from '$lib/components/ui/popover/index.js'
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js'
-	import { Button } from '$lib/components/ui/button/index.js'
 
-	export let amount: string = '3'
+	import { CalendarDate, DateFormatter, getLocalTimeZone } from '@internationalized/date'
+	import ClipsCard from '$lib/components/cards/clipsCard.svelte'
+	import { Button } from '$lib/components/ui/button/index.js'
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js'
+	import * as Popover from '$lib/components/ui/popover/index.js'
+	import { RangeCalendar } from '$lib/components/ui/range-calendar/index.js'
+	import { cn } from '$lib/utils.js'
+	import CalendarIcon from 'lucide-svelte/icons/calendar'
+
+	export let amount: string = '5'
 	export let username: string
 	export let id: string
+	export let colorScheme: string
 
 	const dateFormatter = new DateFormatter('de-DE', {
 		dateStyle: 'medium'
@@ -34,24 +37,20 @@
 
 <section class="container flex flex-col py-32 sm:py-48 lg:py-56">
 	<div class="flex flex-col items-center justify-center gap-4">
-		<h1
-			class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-7xl"
-		>
-			{username}
+		<h1 class="bg-gradient-to-t {colorScheme} bg-clip-text text-5xl font-bold text-transparent md:text-7xl">
+			{username}'s
 		</h1>
-		<h2
-			class="bg-gradient-to-t from-yellow-700 to-yellow-200 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-7xl"
-		>
-			Clips
+		<h2 class="bg-gradient-to-t {colorScheme} bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+			Clips of the Month
 		</h2>
 
 		<div class="my-8 flex flex-col py-8">
-			<div class="flex flex-wrap items-center justify-center gap-2">
+			<div class="flex flex-wrap items-center justify-center gap-2 md:flex-nowrap">
 				<Popover.Root openFocus>
 					<Popover.Trigger asChild let:builder>
 						<Button
 							variant="outline"
-							class={cn('justify-start bg-white text-left font-normal w-full', !value && 'text-muted-foreground')}
+							class={cn('w-full justify-center bg-white font-normal', !value && 'text-muted-foreground')}
 							builders={[builder]}
 						>
 							<CalendarIcon class="mr-2 h-4 w-4" />
@@ -82,7 +81,7 @@
 
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger asChild let:builder>
-						<Button class="bg-white w-full" variant="outline" builders={[builder]}>Anzahl der Clips</Button>
+						<Button class="w-full bg-white" variant="outline" builders={[builder]}>Zeige Clips: {amount}</Button>
 					</DropdownMenu.Trigger>
 					<DropdownMenu.Content class="w-1/4">
 						<DropdownMenu.Label>Anzahl der Clips</DropdownMenu.Label>

@@ -58,11 +58,11 @@
 									{dateFormatter.format(value.start.toDate(getLocalTimeZone()))} - {dateFormatter.format(
 										value.end.toDate(getLocalTimeZone())
 									)}
-									({Math.round(
+									(Tage: {Math.round(
 										(value.end.toDate(getLocalTimeZone()).getTime() -
 											value.start.toDate(getLocalTimeZone()).getTime()) /
 											(1000 * 60 * 60 * 24)
-									)} Tage)
+									)})
 								{:else}
 									{dateFormatter.format(value.start.toDate(getLocalTimeZone()))}
 								{/if}
@@ -80,7 +80,7 @@
 
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger asChild let:builder>
-						<Button class="w-full bg-white" variant="outline" builders={[builder]}>Zeige Clips: {amount}</Button>
+						<Button class="w-full bg-white" variant="outline" builders={[builder]}>Clips: {amount}</Button>
 					</DropdownMenu.Trigger>
 					<DropdownMenu.Content class="w-1/4">
 						<DropdownMenu.Label>Anzahl der Clips</DropdownMenu.Label>

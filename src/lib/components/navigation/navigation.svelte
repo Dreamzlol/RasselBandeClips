@@ -47,11 +47,11 @@
 			<img src={logo.src} alt={logo.alt} class="ml-4 w-3/12" />
 		</a>
 		<div class="flex items-center">
-			<Button class="text-sm text-white" variant="link" href="/">Startseite</Button>
+			<Button class="text-sm font-normal text-white" variant="link" href="/">Startseite</Button>
 
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger class="flex items-center">
-					<Button class="text-sm text-white" variant="link">
+					<Button class="text-sm font-normal text-white" variant="link">
 						Clips of the Month
 						<ChevronDown class="ml-1 h-4 w-4" />
 					</Button>
@@ -59,7 +59,7 @@
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
 						{#each data.broadcasters as broadcaster}
-							<DropdownMenu.Item class="cursor-pointer text-sm text-black" href={broadcaster.linkClips}>
+							<DropdownMenu.Item class="cursor-pointer text-sm font-normal text-black" href={broadcaster.linkClips}>
 								{broadcaster.userName}
 							</DropdownMenu.Item>
 						{/each}
@@ -69,7 +69,7 @@
 
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger class="flex items-center">
-					<Button class="text-sm text-white" variant="link">
+					<Button class="text-sm font-normal text-white" variant="link">
 						Hall of Fame
 						<ChevronDown class="ml-1 h-4 w-4" />
 					</Button>
@@ -77,7 +77,7 @@
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
 						{#each data.broadcasters as broadcaster}
-							<DropdownMenu.Item class="cursor-pointer text-sm text-black" href={broadcaster.linkHall}>
+							<DropdownMenu.Item class="cursor-pointer text-sm text-black font-normal" href={broadcaster.linkHall}>
 								{broadcaster.userName}
 							</DropdownMenu.Item>
 						{/each}

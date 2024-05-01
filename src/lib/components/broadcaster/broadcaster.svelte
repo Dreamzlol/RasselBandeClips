@@ -37,9 +37,9 @@
 <section class="container flex flex-col py-32 sm:py-48 lg:py-56">
 	<div class="flex flex-col items-center justify-center gap-4">
 		<h1 class="bg-gradient-to-t {colorScheme} bg-clip-text text-5xl font-bold text-transparent md:text-7xl">
-			{username}'s
+			{username}
 		</h1>
-		<h2 class="bg-gradient-to-t {colorScheme} bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+		<h2 class="bg-gradient-to-t {colorScheme} bg-clip-text text-3xl font-normal text-transparent md:text-4xl">
 			Clips of the Month
 		</h2>
 

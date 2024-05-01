@@ -6,9 +6,9 @@
 <footer>
 	<div class="flex flex-col items-center justify-center space-y-4 pb-14 pt-64">
 		<div class="flex items-center space-x-2">
-			<p class="text-white">Made with</p>
+			<p class="text-white font-normal">Made with</p>
 			<Heart class="h-6 w-6" />
-			<span class="text-white">and</span>
+			<span class="text-white font-normal">and</span>
 			<Coffee class="h-6 w-6" />
 		</div>
 		<div class="flex items-center">

@@ -44,12 +44,12 @@
 
 			<Accordion.Root class="w-full text-white">
 				<Accordion.Item value="item-1" class="border-none">
-					<Accordion.Trigger class="flex h-12 w-full items-center justify-center text-2xl">
+					<Accordion.Trigger class="flex h-12 w-full items-center justify-center text-2xl font-normal">
 						Hall of Fame
 					</Accordion.Trigger>
 					<Accordion.Content class="w-full">
 						{#each data.broadcasters as broadcaster}
-							<a href={broadcaster.linkHall} class="block py-2 text-white" on:click={handleLinkClick}>
+							<a href={broadcaster.linkHall} class="block py-2 font-normal text-white" on:click={handleLinkClick}>
 								{broadcaster.userName}
 							</a>
 						{/each}

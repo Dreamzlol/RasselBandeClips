@@ -1,4 +1,4 @@
 <script lang="ts">
 </script>
 
-<p class="text-white">Hey Ronnyberger</p>
+<p class="font-normal text-white">Hey Ronnyberger</p>

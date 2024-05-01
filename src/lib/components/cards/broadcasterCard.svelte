@@ -18,7 +18,7 @@
 		</Avatar.Root>
 		<div class="flex flex-col">
 			<div class="flex flex-row items-center">
-				<span class="text-white">{userName}</span>
+				<span class="font-normal text-white">{userName}</span>
 				<svg class="ml-1" width="16" height="16" viewBox="0 0 16 16" aria-label="Verified Partner">
 					<path
 						fill-rule="evenodd"
@@ -28,7 +28,9 @@
 					></path>
 				</svg>
 			</div>
-			<div class="bg-gradient-to-t bg-clip-text text-xs text-transparent {gradientClass}">Clips of the Month</div>
+			<div class="bg-gradient-to-t bg-clip-text text-xs font-normal text-transparent {gradientClass}">
+				Clips of the Month
+			</div>
 		</div>
 	</Card>
 </a>

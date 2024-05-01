@@ -51,7 +51,7 @@
 		>
 			<X class="h-10 w-10 text-white" />
 		</button>
-		<h2 class="absolute top-40 z-50 text-xl text-white md:text-4xl">{title}</h2>
+		<h2 class="absolute top-40 z-50 text-xl text-white md:text-4xl font-bold">{title}</h2>
 		<div class="fixed z-50 flex h-1/2 w-1/2 items-center justify-center p-2 text-white">
 			<iframe src={iframeSrc} {title} allowfullscreen class="h-full w-full"></iframe>
 		</div>

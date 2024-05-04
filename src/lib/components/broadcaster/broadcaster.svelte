@@ -34,22 +34,22 @@
 	let startValue: DateValue | undefined = undefined
 </script>
 
-<section class="container flex flex-col py-32 sm:py-48 lg:py-56">
+<section class="container flex flex-col py-32">
 	<div class="flex flex-col items-center justify-center gap-4">
-		<h1 class="bg-gradient-to-t {colorScheme} bg-clip-text text-5xl font-bold text-transparent md:text-7xl">
+		<h1
+			class="bg-gradient-to-t {colorScheme} bg-clip-text text-6xl font-bold leading-tight text-transparent lg:text-8xl lg:leading-tight"
+		>
 			{username}
 		</h1>
-		<h2 class="bg-gradient-to-t {colorScheme} bg-clip-text text-3xl font-normal text-transparent md:text-4xl">
-			Clips of the Month
-		</h2>
+		<h2 class="text-2xl font-normal text-transparent text-white md:text-3xl">Clips of the Month</h2>
 
 		<div class="my-8 flex flex-col py-8">
-			<div class="flex flex-wrap items-center justify-center gap-2 md:flex-nowrap">
+			<div class="flex w-full flex-wrap items-center justify-center gap-2 md:flex-nowrap">
 				<Popover.Root openFocus>
 					<Popover.Trigger asChild let:builder>
 						<Button
 							variant="outline"
-							class={cn('w-full justify-center bg-white font-normal', !value && 'text-muted-foreground')}
+							class={cn('justify-center bg-white font-normal', !value && 'text-muted-foreground')}
 							builders={[builder]}
 						>
 							<CalendarIcon class="mr-2 h-4 w-4" />
@@ -82,7 +82,7 @@
 					<DropdownMenu.Trigger asChild let:builder>
 						<Button class="w-full bg-white" variant="outline" builders={[builder]}>Clips: {amount}</Button>
 					</DropdownMenu.Trigger>
-					<DropdownMenu.Content class="w-1/4">
+					<DropdownMenu.Content>
 						<DropdownMenu.Label>Anzahl der Clips</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.RadioGroup bind:value={amount}>

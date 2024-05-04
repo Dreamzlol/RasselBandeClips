@@ -22,7 +22,7 @@
 
 <header class="block md:hidden">
 	<div class="flex flex-col">
-		<a href="/" class="fixed left-0 z-50 flex items-center justify-start border-b border-white/10 p-4 backdrop-blur">
+		<a href="/" class="fixed left-0 z-50 flex items-center justify-start border-b border-white/10 w-full p-4 backdrop-blur">
 			<img src={logo.src} alt={logo.alt} class="w-3/12" />
 		</a>
 		<button

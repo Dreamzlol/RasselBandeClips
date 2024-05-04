@@ -48,9 +48,9 @@
 				<Popover.Root openFocus>
 					<Popover.Trigger asChild let:builder>
 						<Button
-							variant="outline"
 							class={cn('justify-center bg-white font-normal', !value && 'text-muted-foreground')}
 							builders={[builder]}
+							variant="outline"
 						>
 							<CalendarIcon class="mr-2 h-4 w-4" />
 							{#if value && value.start}
@@ -74,13 +74,13 @@
 						</Button>
 					</Popover.Trigger>
 					<Popover.Content class="mt-2 w-auto p-0" align="start">
-						<RangeCalendar bind:value bind:startValue initialFocus numberOfMonths={2} placeholder={value?.start} />
+						<RangeCalendar initialFocus numberOfMonths={2} placeholder={value?.start} bind:value bind:startValue />
 					</Popover.Content>
 				</Popover.Root>
 
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger asChild let:builder>
-						<Button class="w-full bg-white" variant="outline" builders={[builder]}>Clips: {amount}</Button>
+						<Button class="w-full bg-white" builders={[builder]} variant="outline">Clips: {amount}</Button>
 					</DropdownMenu.Trigger>
 					<DropdownMenu.Content>
 						<DropdownMenu.Label>Anzahl der Clips</DropdownMenu.Label>
@@ -96,6 +96,6 @@
 			</div>
 		</div>
 
-		<ClipsCard {id} bind:dateRange={value} clipCount={amount} />
+		<ClipsCard {id} clipCount={amount} bind:dateRange={value} />
 	</div>
 </section>

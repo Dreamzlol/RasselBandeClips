@@ -1,4 +1,7 @@
-<svg {...$$restProps} width="100%" height="100%" viewBox="0 0 479 479" fill="none" xmlns="http://www.w3.org/2000/svg">
+<script lang="ts">
+</script>
+
+<svg {...$$restProps} fill="none" height="100%" viewBox="0 0 479 479" width="100%" xmlns="http://www.w3.org/2000/svg">
 	<path d="M179.625 329.312V359.25H209.562V389.188H269.438V359.25H299.375V329.312H179.625Z" fill="#892727" />
 	<path d="M329.312 299.375H299.375V329.312H329.312V299.375Z" fill="#892727" />
 	<path d="M179.625 299.375H149.688V329.312H179.625V299.375Z" fill="#892727" />

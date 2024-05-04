@@ -9,9 +9,9 @@
 
 {#if broadcasterData}
 	<Broadcaster
-		username={broadcasterData.userName}
 		id={broadcasterData.broadcasterId}
 		colorScheme={broadcasterData.colorScheme}
+		username={broadcasterData.userName}
 	/>
 {:else}
 	<p class="md:text-md px-8 pt-4 text-center text-sm font-normal text-gray-400">Loading broadcaster data...</p>

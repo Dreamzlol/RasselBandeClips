@@ -18,17 +18,21 @@
 	}
 </script>
 
-<Sidebar bind:show={sidebarOpen} {data} on:linkClick={toggleSidebar} />
+<Sidebar {data} bind:show={sidebarOpen} on:linkClick={toggleSidebar} />
 
 <header class="block md:hidden">
 	<div class="flex flex-col">
-		<a href="/" class="fixed left-0 z-50 flex items-center justify-start border-b border-white/10 w-full p-4 backdrop-blur">
-			<img src={logo.src} alt={logo.alt} class="w-3/12" />
+		<a
+			class="fixed left-0 z-50 flex w-full items-center justify-start border-b border-white/10 p-4 backdrop-blur"
+			href="/"
+		>
+			<img class="w-3/12" alt={logo.alt} src={logo.src} />
 		</a>
 		<button
 			class="fixed right-0 z-50 flex items-center justify-center p-4 text-white"
-			on:click={toggleSidebar}
 			aria-label="Toggle sidebar"
+			type="button"
+			on:click={toggleSidebar}
 		>
 			{#if sidebarOpen}
 				<X class="h-8 w-8" />
@@ -43,11 +47,11 @@
 	<div
 		class="fixed z-50 flex w-full items-center justify-center space-x-10 border-b border-white/10 bg-transparent py-2 backdrop-blur"
 	>
-		<a href="/" class="flex items-center">
-			<img src={logo.src} alt={logo.alt} class="ml-4 w-3/12" />
+		<a class="flex items-center" href="/">
+			<img class="ml-4 w-3/12" alt={logo.alt} src={logo.src} />
 		</a>
 		<div class="flex items-center">
-			<Button class="text-sm font-normal text-white" variant="link" href="/">Startseite</Button>
+			<Button class="text-sm font-normal text-white" href="/" variant="link">Startseite</Button>
 
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger class="flex items-center">
@@ -58,7 +62,7 @@
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
-						{#each data.broadcasters as broadcaster}
+						{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
 							<DropdownMenu.Item class="cursor-pointer text-sm font-normal text-black" href={broadcaster.linkClips}>
 								{broadcaster.userName}
 							</DropdownMenu.Item>
@@ -76,8 +80,8 @@
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content>
 					<DropdownMenu.Group>
-						{#each data.broadcasters as broadcaster}
-							<DropdownMenu.Item class="cursor-pointer text-sm text-black font-normal" href={broadcaster.linkHall}>
+						{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
+							<DropdownMenu.Item class="cursor-pointer text-sm font-normal text-black" href={broadcaster.linkHall}>
 								{broadcaster.userName}
 							</DropdownMenu.Item>
 						{/each}

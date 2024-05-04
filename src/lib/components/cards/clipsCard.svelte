@@ -50,7 +50,7 @@
 				thumbnail: clip.thumbnail_url
 			}))
 		} catch (error) {
-			console.error('Error fetching clips:', error)
+			console.log('Error fetching clips:', error)
 		}
 	}
 
@@ -75,16 +75,17 @@
 {/if}
 
 <div class="grid grid-cols-2 gap-4 gap-x-8 gap-y-8 md:grid-cols-3">
-	{#each clips as clip}
+	{#each clips as clip (clip.slug)}
 		<div class="relative overflow-hidden">
 			<button
 				class="relative flex items-center justify-center bg-transparent p-0 focus:outline-none"
 				aria-label={clip.title}
+				type="button"
 				on:click={() => openPopup(clip)}
 			>
-				<img class="object-cover" src={clip.thumbnail} alt={clip.title} />
+				<img class="object-cover" alt={clip.title} src={clip.thumbnail} />
 				<div class="absolute inset-0 flex items-center justify-center">
-					<Play fill="#9147ff" class="h-14 w-14 text-transparent transition-all hover:scale-110 md:h-24 md:w-24" />
+					<Play class="h-14 w-14 text-transparent transition-all hover:scale-110 md:h-24 md:w-24" fill="#9147ff" />
 				</div>
 			</button>
 			<div class="pt-2">
@@ -97,14 +98,14 @@
 </div>
 
 {#if isPopupOpen && selectedClip}
-	<Popup title={selectedClip.title} embedUrl={selectedClip.embedUrl} on:close={closePopup}>
+	<Popup embedUrl={selectedClip.embedUrl} title={selectedClip.title} on:close={closePopup}>
 		<div class="aspect-w-16 aspect-h-9">
 			<iframe
+				class="h-full w-full"
+				allowfullscreen
+				frameborder="0"
 				src={selectedClip.embedUrl}
 				title={selectedClip.title}
-				frameborder="0"
-				allowfullscreen
-				class="h-full w-full"
 			></iframe>
 		</div>
 	</Popup>

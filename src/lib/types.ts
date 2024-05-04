@@ -24,3 +24,7 @@ export interface Broadcaster {
 	gradientClass: string
 	link: string
 }
+
+export interface PopupEvents {
+	close: void
+}

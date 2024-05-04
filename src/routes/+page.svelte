@@ -25,7 +25,7 @@
 		<Arrow class="h-14 w-14 animate-bounce self-center fill-purple-500" />
 	</section>
 
-	<section class="flex h-screen flex-col items-center justify-center" id="clipsOfTheMonth">
+	<section id="clipsOfTheMonth" class="flex h-screen flex-col items-center justify-center">
 		<div class="flex flex-col items-center justify-center" use:reveal={{ duration: 500, reset: true }}>
 			<h1
 				class="bg-gradient-to-t from-blue-600 to-cyan-600 bg-clip-text text-4xl font-bold text-transparent md:text-7xl"
@@ -42,13 +42,13 @@
 		>
 			<Heart class="absolute h-[15%] w-[15%]" />
 			<div class="grid w-full max-w-4xl grid-cols-1 gap-8 p-4 md:grid-cols-2">
-				{#each data.broadcasters as broadcaster}
+				{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
 					<BroadcasterCard
-						userName={broadcaster.userName}
-						link={broadcaster.linkClips}
-						avatarSrc={broadcaster.avatarSrc}
 						avatarAlt={broadcaster.avatarAlt}
+						avatarSrc={broadcaster.avatarSrc}
 						gradientClass={broadcaster.colorScheme}
+						link={broadcaster.linkClips}
+						userName={broadcaster.userName}
 					/>
 				{/each}
 			</div>
@@ -73,8 +73,8 @@
 			</p>
 		</div>
 		<div class="flex flex-col">
-			{#each data.broadcasters as broadcaster}
-				<ClipsCard userName={broadcaster.userName} id={broadcaster.broadcasterId} />
+			{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
+				<ClipsCard id={broadcaster.broadcasterId} userName={broadcaster.userName} />
 			{/each}
 		</div>
 	</section>

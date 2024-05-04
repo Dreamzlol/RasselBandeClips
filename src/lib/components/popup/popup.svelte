@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { PopupEvents } from '$lib/types'
 	import { X } from 'lucide-svelte'
 	import { createEventDispatcher, onDestroy, onMount } from 'svelte'
 
@@ -8,7 +9,7 @@
 	const isDevelopment = process.env.NODE_ENV === 'development'
 	$: iframeSrc = `${embedUrl}&parent=${isDevelopment ? 'localhost' : 'rassel-bande-clips.vercel.app'}`
 
-	const dispatch = createEventDispatcher()
+	const dispatch = createEventDispatcher<PopupEvents>()
 
 	const handleClose = () => {
 		dispatch('close')
@@ -36,9 +37,9 @@
 {#if embedUrl}
 	<div
 		class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm"
+		aria-label="Close"
 		role="button"
 		tabindex="0"
-		aria-label="Close"
 		on:click={handleClose}
 		on:keydown={handleKeyDown}
 	>
@@ -46,14 +47,15 @@
 			class="absolute right-0 top-0 z-50 p-8 transition duration-300 hover:rotate-90"
 			aria-label="Close"
 			tabindex="0"
+			type="button"
 			on:click={handleClose}
 			on:keydown={handleKeyDown}
 		>
 			<X class="h-10 w-10 text-white" />
 		</button>
-		<h2 class="absolute top-40 z-50 text-xl text-white md:text-4xl font-bold">{title}</h2>
+		<h2 class="absolute top-40 z-50 text-xl font-bold text-white md:text-4xl">{title}</h2>
 		<div class="fixed z-50 flex h-1/2 w-1/2 items-center justify-center p-2 text-white">
-			<iframe src={iframeSrc} {title} allowfullscreen class="h-full w-full"></iframe>
+			<iframe class="h-full w-full" allowfullscreen src={iframeSrc} {title}></iframe>
 		</div>
 	</div>
 {/if}

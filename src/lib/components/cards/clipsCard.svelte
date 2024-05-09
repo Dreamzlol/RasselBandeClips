@@ -91,7 +91,7 @@
 			<div class="pt-2">
 				<h3 class="font-medium text-white">{clip.title}</h3>
 				<p class="text-sm font-normal text-gray-500">Views: {clip.views}</p>
-				<p class="text-sm font-normal text-gray-500">Datum: {new Date(clip.date).toLocaleDateString()}</p>
+				<p class="text-sm font-normal text-gray-500">Datum: {new Date(clip.date).toLocaleDateString('de-DE')}</p>
 			</div>
 		</div>
 	{/each}

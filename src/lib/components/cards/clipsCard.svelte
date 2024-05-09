@@ -16,22 +16,24 @@
 	let selectedClip: Clip | null = null
 	let isPopupOpen = false
 
-	const fetchClips = async () => {
-		const params: {
-			broadcaster_id: string
-			first: string
-			started_at?: string
-			ended_at?: string
-		} = {
-			broadcaster_id: id,
-			first: clipCount
-		}
+	let params: {
+		broadcaster_id: string
+		first: string
+		started_at?: string
+		ended_at?: string
+	} = {
+		broadcaster_id: id,
+		first: clipCount
+	}
 
+	$: {
 		if (dateRange && dateRange.start && dateRange.end) {
 			params.started_at = new Date(dateRange.start.toString()).toISOString()
 			params.ended_at = new Date(dateRange.end.toString()).toISOString()
 		}
+	}
 
+	const fetchClips = async () => {
 		try {
 			const response = await axios.get('https://api.twitch.tv/helix/clips', {
 				params: params,
@@ -65,9 +67,7 @@
 
 	onMount(fetchClips)
 
-	$: if (dateRange || clipCount) {
-		fetchClips()
-	}
+	$: fetchClips()
 </script>
 
 {#if userName}

@@ -1,56 +1,30 @@
 <script lang="ts">
-	import type { Clip, TwitchClip } from '$lib/types'
-	import type { DateRange } from 'bits-ui'
-	import { env } from '$env/dynamic/public'
+	import type { Clip, DateRange } from '$lib/types'
 	import Popup from '$lib/components/popup/popup.svelte'
-	import axios from 'axios'
+	import { fetchClips } from '$lib/utils'
 	import { Play } from 'lucide-svelte'
 	import { onMount } from 'svelte'
 
 	export let id: string
 	export let clipCount: string = '3'
-	export let userName: string | null = null
-	export let dateRange: DateRange | null = null
+	export let userName: string
+	export let dateRange: DateRange
 
 	let clips: Clip[] = []
 	let selectedClip: Clip | null = null
 	let isPopupOpen = false
 
-	const fetchClips = async () => {
-		const params: {
-			broadcaster_id: string
-			first: string
-			started_at?: string
-			ended_at?: string
-		} = {
-			broadcaster_id: id,
-			first: clipCount
-		}
+	onMount(() => {
+		updateClips()
+	})
 
-		if (dateRange && dateRange.start && dateRange.end) {
-			params.started_at = new Date(dateRange.start.toString()).toISOString()
-			params.ended_at = new Date(dateRange.end.toString()).toISOString()
-		}
+	$: dateRange, clipCount, updateClips()
 
+	async function updateClips() {
 		try {
-			const response = await axios.get('https://api.twitch.tv/helix/clips', {
-				params: params,
-				headers: {
-					'Client-ID': env.PUBLIC_TWITCH_CLIENT_ID,
-					Authorization: `Bearer ${env.PUBLIC_TWITCH_ACCESS_TOKEN}`
-				}
-			})
-
-			clips = response.data.data.map((clip: TwitchClip) => ({
-				slug: clip.id,
-				embedUrl: clip.embed_url,
-				title: clip.title,
-				views: clip.view_count,
-				date: clip.created_at,
-				thumbnail: clip.thumbnail_url
-			}))
+			clips = await fetchClips(id, clipCount, dateRange)
 		} catch (error) {
-			console.log('Error fetching clips:', error)
+			console.error('Failed to update clips:', error)
 		}
 	}
 
@@ -61,12 +35,6 @@
 
 	const closePopup = () => {
 		isPopupOpen = false
-	}
-
-	onMount(fetchClips)
-
-	$: if (dateRange || clipCount) {
-		fetchClips()
 	}
 </script>
 

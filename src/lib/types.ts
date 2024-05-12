@@ -28,3 +28,8 @@ export interface Broadcaster {
 export interface PopupEvents {
 	close: void
 }
+
+export type DateRange = {
+	start: Date | string
+	end: Date | string
+}

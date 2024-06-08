@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { Clip, DateRange } from '$lib/types'
 	import Popup from '$lib/components/popup/popup.svelte'
-	import { fetchClips } from '$lib/utils'
 	import { Play } from 'lucide-svelte'
 	import { onMount } from 'svelte'
+	import { getClips } from '../../../routes/api/getClips'
 
 	export let id: string
 	export let clipCount: string = '3'
@@ -14,15 +14,11 @@
 	let selectedClip: Clip | null = null
 	let isPopupOpen = false
 
-	onMount(() => {
-		updateClips()
-	})
-
 	$: dateRange, clipCount, updateClips()
 
-	async function updateClips() {
+	const updateClips = async () => {
 		try {
-			clips = await fetchClips(id, clipCount, dateRange)
+			clips = await getClips(id, clipCount, dateRange)
 		} catch (error) {
 			console.error('Failed to update clips:', error)
 		}
@@ -36,6 +32,10 @@
 	const closePopup = () => {
 		isPopupOpen = false
 	}
+
+	onMount(() => {
+		updateClips()
+	})
 </script>
 
 {#if userName}

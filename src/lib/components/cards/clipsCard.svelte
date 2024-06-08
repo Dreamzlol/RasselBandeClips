@@ -14,8 +14,6 @@
 	let selectedClip: Clip | null = null
 	let isPopupOpen = false
 
-	$: dateRange, clipCount, updateClips()
-
 	const updateClips = async () => {
 		try {
 			clips = await getClips(id, clipCount, dateRange)
@@ -33,9 +31,7 @@
 		isPopupOpen = false
 	}
 
-	onMount(() => {
-		updateClips()
-	})
+	onMount(updateClips)
 </script>
 
 {#if userName}

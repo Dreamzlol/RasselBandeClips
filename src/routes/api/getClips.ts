@@ -1,6 +1,5 @@
 import type { Clip, DateRange, TwitchClip } from '$lib/types'
 import { env } from '$env/dynamic/public'
-import axios from 'axios'
 
 export const getClips = async (broadcaster_id: string, clipCount: string, dateRange?: DateRange): Promise<Clip[]> => {
 	const params: Record<string, string> = {
@@ -8,30 +7,34 @@ export const getClips = async (broadcaster_id: string, clipCount: string, dateRa
 		first: clipCount
 	}
 
-	if (dateRange && dateRange.start && dateRange.end) {
-		params.started_at = new Date(dateRange.start.toString()).toISOString()
-		params.ended_at = new Date(dateRange.end.toString()).toISOString()
+	if (dateRange?.start && dateRange?.end) {
+		params.started_at = dateRange.start.toString()
+		params.ended_at = dateRange.end.toString()
 	}
 
-	try {
-		const response = await axios.get('https://api.twitch.tv/helix/clips', {
-			params: params,
-			headers: {
-				'Client-ID': env.PUBLIC_TWITCH_CLIENT_ID,
-				Authorization: `Bearer ${env.PUBLIC_TWITCH_ACCESS_TOKEN}`
-			}
-		})
+	const url = new URL('https://api.twitch.tv/helix/clips')
+	url.search = new URLSearchParams(params).toString()
 
-		return response.data.data.map((clip: TwitchClip) => ({
-			slug: clip.id,
-			embedUrl: clip.embed_url,
-			title: clip.title,
-			views: clip.view_count,
-			date: clip.created_at,
-			thumbnail: clip.thumbnail_url
-		}))
-	} catch (error) {
-		console.error('Error fetching clips:', error)
-		throw new Error('Failed to fetch clips')
+	const response = await fetch(url, {
+		method: 'GET',
+		headers: {
+			'Client-ID': env.PUBLIC_TWITCH_CLIENT_ID,
+			Authorization: `Bearer ${env.PUBLIC_TWITCH_ACCESS_TOKEN}`
+		}
+	})
+
+	if (!response.ok) {
+		console.error('Error fetching clips:', response.statusText)
+		return []
 	}
+
+	const data = await response.json()
+	return data.data.map((clip: TwitchClip) => ({
+		slug: clip.id,
+		embedUrl: clip.embed_url,
+		title: clip.title,
+		views: clip.view_count,
+		date: clip.created_at,
+		thumbnail: clip.thumbnail_url
+	}))
 }

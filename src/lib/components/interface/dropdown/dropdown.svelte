@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onDestroy, onMount } from 'svelte'
+
 	let isOpen = false
 
 	const toggleDropdown = () => {
@@ -10,11 +12,33 @@
 			toggleDropdown()
 		}
 	}
+
+	const handleClickOutside = (event: MouseEvent) => {
+		const dropdownElement = document.querySelector('.dropdown-container')
+		if (dropdownElement && !dropdownElement.contains(event.target as Node)) {
+			isOpen = false
+		}
+	}
+
+	onMount(() => {
+		document.addEventListener('click', handleClickOutside)
+	})
+
+	onDestroy(() => {
+		document.removeEventListener('click', handleClickOutside)
+	})
 </script>
 
-<div class="relative inline-block text-left">
+<div class="dropdown-container relative inline-block text-left">
 	<div>
-		<button class="w-full px-4 py-2" type="button" on:click={toggleDropdown} on:keydown={handleKeyDown}>
+		<button
+			class="w-full px-4 py-2"
+			type="button"
+			on:click={toggleDropdown}
+			on:keydown={handleKeyDown}
+			aria-expanded={isOpen}
+			aria-haspopup="true"
+		>
 			<slot name="trigger" />
 		</button>
 	</div>

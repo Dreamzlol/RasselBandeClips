@@ -36,7 +36,7 @@
 
 {#if embedUrl}
 	<div
-		class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm"
+		class="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-2xl"
 		aria-label="Close"
 		role="button"
 		tabindex="0"
@@ -51,11 +51,18 @@
 			on:click={handleClose}
 			on:keydown={handleKeyDown}
 		>
-			<X class="h-10 w-10 text-white" />
+			<X class="h-10 w-10 text-black" />
 		</button>
-		<h2 class="absolute top-40 z-50 text-xl font-bold text-white md:text-4xl">{title}</h2>
+		<h2 class="absolute top-20 z-50 text-xl font-bold text-white md:text-6xl text-stroke">{title}</h2>
 		<div class="fixed z-50 flex h-1/2 w-1/2 items-center justify-center p-2 text-white">
-			<iframe class="h-full w-full" allowfullscreen src={iframeSrc} {title}></iframe>
+			<iframe class="aspect-video w-full border-black  border-2 shadow-[4px_4px_0px_rgba(0,0,0,1)]" allowfullscreen src={iframeSrc} {title}></iframe>
 		</div>
 	</div>
 {/if}
+
+<style>
+	.text-stroke {
+		text-shadow: 3px 3px 0px black;
+		-webkit-text-stroke: 2px black;
+	}
+</style>

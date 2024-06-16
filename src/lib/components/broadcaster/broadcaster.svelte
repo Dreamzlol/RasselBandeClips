@@ -37,11 +37,11 @@
 <section class="container flex flex-col py-32">
 	<div class="flex flex-col items-center justify-center gap-4">
 		<h1
-			class="bg-gradient-to-t {colorScheme} bg-clip-text text-6xl font-bold leading-tight text-transparent lg:text-8xl lg:leading-tight"
+			class="bg-gradient-to-t text-white bg-clip-text text-6xl font-bold leading-tight text-transparent lg:text-8xl lg:leading-tight text-stroke"
 		>
 			{username}
 		</h1>
-		<h2 class="text-2xl font-normal text-transparent text-white md:text-3xl">Clips of the Month</h2>
+		<h2 class="text-2xl font-normal  text-black md:text-3xl">Clips of the Month</h2>
 
 		<div class="my-8 flex flex-col py-8">
 			<div class="flex w-full flex-wrap items-center justify-center gap-2 md:flex-nowrap">
@@ -99,3 +99,10 @@
 		<ClipsCard {id} clipCount={amount} bind:dateRange={value} />
 	</div>
 </section>
+
+<style>
+	.text-stroke {
+		text-shadow: 3px 3px 0px black;
+		-webkit-text-stroke: 2px black;
+	}
+</style>

@@ -35,12 +35,12 @@
 </script>
 
 {#if userName}
-	<h2 class="py-8 pt-14 text-5xl font-bold text-black">{userName}</h2>
+	<h2 class="py-8 pt-14 text-5xl font-bold text-white text-stroke">{userName}</h2>
 {/if}
 
 <div class="grid grid-cols-2 gap-4 gap-x-8 gap-y-8 md:grid-cols-3">
 	{#each clips as clip (clip.slug)}
-		<div class="relative overflow-hidden">
+		<div class="relative">
 			<button
 				class="relative flex items-center justify-center bg-transparent p-0 focus:outline-none"
 				aria-label={clip.title}
@@ -76,3 +76,10 @@
 		</div>
 	</Popup>
 {/if}
+
+<style>
+	.text-stroke {
+		text-shadow: 3px 3px 0px black;
+		-webkit-text-stroke: 2px black;
+	}
+</style>

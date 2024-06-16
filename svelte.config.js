@@ -9,6 +9,15 @@ const config = {
 	alias: {
 		'@/*': './path/to/lib/*'
 	},
-	preprocess: vitePreprocess()
+	preprocess: vitePreprocess(),
+	vitePlugin: {
+		inspector: {
+			toggleKeyCombo: 'meta-shift',
+			showToggleButton: 'always',
+			toggleButtonPos: 'bottom-right',
+			openKey: 'enter',
+			escKey: 'Escape'
+		}
+	}
 }
 export default config

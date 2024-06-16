@@ -35,7 +35,7 @@
 </script>
 
 {#if userName}
-	<h2 class="py-8 pt-14 text-4xl font-bold text-white">{userName}</h2>
+	<h2 class="py-8 pt-14 text-5xl font-bold text-black">{userName}</h2>
 {/if}
 
 <div class="grid grid-cols-2 gap-4 gap-x-8 gap-y-8 md:grid-cols-3">
@@ -48,14 +48,16 @@
 				on:click={() => openPopup(clip)}
 			>
 				<img class="object-cover" alt={clip.title} src={clip.thumbnail} />
-				<div class="absolute inset-0 flex items-center justify-center">
+				<div
+					class="absolute inset-0 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]"
+				>
 					<Play class="h-14 w-14 text-transparent transition-all hover:scale-110 md:h-24 md:w-24" fill="#9147ff" />
 				</div>
 			</button>
 			<div class="pt-2">
-				<h3 class="font-medium text-white">{clip.title}</h3>
-				<p class="text-sm font-normal text-gray-500">Views: {clip.views}</p>
-				<p class="text-sm font-normal text-gray-500">Datum: {new Date(clip.date).toLocaleDateString('de-DE')}</p>
+				<h3 class="font-bold text-black">{clip.title}</h3>
+				<p class="text-sm font-normal text-zinc-600">Views: {clip.views}</p>
+				<p class="text-sm font-normal text-zinc-600">Datum: {new Date(clip.date).toLocaleDateString('de-DE')}</p>
 			</div>
 		</div>
 	{/each}

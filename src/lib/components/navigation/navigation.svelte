@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from '../../../routes/$types'
+	import Dropdown from '$lib/components/interface/dropdown/dropdown.svelte'
 	import Sidebar from '$lib/components/sidebar/sidebar.svelte'
 	import { Button } from '$lib/components/ui/button'
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu'
@@ -22,14 +23,11 @@
 
 <header class="block md:hidden">
 	<div class="flex flex-col">
-		<a
-			class="fixed left-0 z-50 flex w-full items-center justify-start border-b border-white/10 p-4 backdrop-blur"
-			href="/"
-		>
+		<a class="fixed left-0 z-50 flex w-full items-center justify-start bg-[#FFF59F] p-4" href="/">
 			<img class="w-3/12" alt={logo.alt} src={logo.src} />
 		</a>
 		<button
-			class="fixed right-0 z-50 flex items-center justify-center p-4 text-white"
+			class="fixed right-0 z-50 flex items-center justify-center p-4 text-black"
 			aria-label="Toggle sidebar"
 			type="button"
 			on:click={toggleSidebar}
@@ -44,50 +42,50 @@
 </header>
 
 <header class="hidden md:block">
-	<div
-		class="fixed z-50 flex w-full items-center justify-center space-x-10 border-b border-white/10 bg-transparent py-2 backdrop-blur"
-	>
+	<div class="fixed z-50 flex w-full items-center justify-center space-x-10 bg-[#FFF59F] py-4">
 		<a class="flex items-center" href="/">
 			<img class="ml-4 w-3/12" alt={logo.alt} src={logo.src} />
 		</a>
 		<div class="flex items-center">
-			<Button class="text-sm font-normal text-white" href="/" variant="link">Startseite</Button>
+			<Button class="text-sm font-normal text-black" href="/" variant="link">Startseite</Button>
 
-			<DropdownMenu.Root>
-				<DropdownMenu.Trigger class="flex items-center">
-					<Button class="text-sm font-normal text-white" variant="link">
-						Clips of the Month
-						<ChevronDown class="ml-1 h-4 w-4" />
-					</Button>
-				</DropdownMenu.Trigger>
-				<DropdownMenu.Content>
-					<DropdownMenu.Group>
-						{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
-							<DropdownMenu.Item class="cursor-pointer text-sm font-normal text-black" href={broadcaster.linkClips}>
-								{broadcaster.userName}
-							</DropdownMenu.Item>
-						{/each}
-					</DropdownMenu.Group>
-				</DropdownMenu.Content>
-			</DropdownMenu.Root>
+			<Dropdown>
+				<span slot="trigger" class="flex items-center text-sm font-normal text-black">
+					Clips of the Month<ChevronDown class="ml-1 h-4 w-4 text-black" />
+				</span>
 
-			<DropdownMenu.Root>
-				<DropdownMenu.Trigger class="flex items-center">
-					<Button class="text-sm font-normal text-white" variant="link">
-						Hall of Fame
-						<ChevronDown class="ml-1 h-4 w-4" />
-					</Button>
-				</DropdownMenu.Trigger>
-				<DropdownMenu.Content>
-					<DropdownMenu.Group>
+				<div slot="items" class="border-2 border-black bg-[#FFF59F] p-2 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+					<div class="flex flex-col">
 						{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
-							<DropdownMenu.Item class="cursor-pointer text-sm font-normal text-black" href={broadcaster.linkHall}>
+							<a
+								class="cursor-pointer text-sm font-normal text-black underline-offset-4 hover:font-bold hover:underline"
+								href={broadcaster.linkClips}
+							>
 								{broadcaster.userName}
-							</DropdownMenu.Item>
+							</a>
 						{/each}
-					</DropdownMenu.Group>
-				</DropdownMenu.Content>
-			</DropdownMenu.Root>
+					</div>
+				</div>
+			</Dropdown>
+
+			<Dropdown>
+				<span slot="trigger" class="flex items-center text-sm font-normal text-black">
+					Hall of Fame<ChevronDown class="ml-1 h-4 w-4 text-black" />
+				</span>
+
+				<div slot="items" class="border-2 border-black bg-[#FFF59F] p-2 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+					<div class="flex flex-col">
+						{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
+							<a
+								class="cursor-pointer text-sm font-normal text-black underline-offset-4 hover:font-bold hover:underline"
+								href={broadcaster.linkClips}
+							>
+								{broadcaster.userName}
+							</a>
+						{/each}
+					</div>
+				</div>
+			</Dropdown>
 		</div>
 	</div>
 </header>

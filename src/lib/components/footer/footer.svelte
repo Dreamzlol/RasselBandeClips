@@ -6,18 +6,13 @@
 <footer>
 	<div class="flex flex-col items-center justify-center space-y-4 pb-14 pt-64">
 		<div class="flex items-center space-x-2">
-			<p class="font-normal text-white">Made with</p>
+			<p class="font-normal text-black">Made with</p>
 			<Heart class="h-6 w-6" />
-			<span class="font-normal text-white">and</span>
+			<span class="font-normal text-black">and</span>
 			<Coffee class="h-6 w-6" />
 		</div>
 		<div class="flex items-center">
-			<a
-				class="bg-gradient-to-t from-blue-600 to-blue-400 bg-clip-text font-bold text-transparent"
-				href="https://www.twitch.tv/dreams___________"
-			>
-				Dreams___________
-			</a>
+			<a class="font-bold text-black" href="https://www.twitch.tv/dreams___________"> Dreams___________ </a>
 		</div>
 	</div>
 </footer>

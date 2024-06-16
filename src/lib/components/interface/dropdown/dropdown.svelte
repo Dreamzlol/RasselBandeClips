@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment'
 	import { onDestroy, onMount } from 'svelte'
 
 	let isOpen = false
@@ -20,13 +21,15 @@
 		}
 	}
 
-	onMount(() => {
-		document.addEventListener('click', handleClickOutside)
-	})
+	if (browser) {
+		onMount(() => {
+			document.addEventListener('click', handleClickOutside)
+		})
 
-	onDestroy(() => {
-		document.removeEventListener('click', handleClickOutside)
-	})
+		onDestroy(() => {
+			document.removeEventListener('click', handleClickOutside)
+		})
+	}
 </script>
 
 <div class="dropdown-container relative inline-block text-left">

@@ -34,14 +34,7 @@
 
 <div class="dropdown-container relative inline-block text-left">
 	<div>
-		<button
-			class="w-full px-4 py-2"
-			type="button"
-			on:click={toggleDropdown}
-			on:keydown={handleKeyDown}
-			aria-expanded={isOpen}
-			aria-haspopup="true"
-		>
+		<button class="w-full px-4 py-2" type="button" on:click={toggleDropdown} on:keydown={handleKeyDown}>
 			<slot name="trigger" />
 		</button>
 	</div>

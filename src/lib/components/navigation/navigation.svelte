@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from '../../../routes/$types'
 	import Dropdown from '$lib/components/interface/dropdown/dropdown.svelte'
+	import Link from '$lib/components/link/link.svelte'
 	import Sidebar from '$lib/components/sidebar/sidebar.svelte'
 	import { Button } from '$lib/components/ui/button'
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu'
@@ -47,44 +48,42 @@
 			<img class="ml-4 w-3/12" alt={logo.alt} src={logo.src} />
 		</a>
 		<div class="flex items-center">
-			<Button class="text-sm font-normal text-black" href="/" variant="link">Startseite</Button>
-
+			<Link className="text-sm font-normal text-black" href="/">Startseite</Link>
 			<Dropdown>
-				<span slot="trigger" class="flex items-center text-sm font-normal text-black">
-					Clips of the Month<ChevronDown class="ml-1 h-4 w-4 text-black" />
-				</span>
-
-				<div slot="items" class="border-2 border-black bg-[#FFF59F] p-2 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
-					<div class="flex flex-col">
+				<svelte:fragment slot="trigger">
+					<span class="flex items-center text-sm font-normal text-black">
+						Clips of the Month<ChevronDown class="ml-1 h-4 w-4 text-black" />
+					</span>
+				</svelte:fragment>
+				<svelte:fragment slot="items">
+					<ul class="border-2 border-black bg-[#FFF59F] p-2 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
 						{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
-							<a
-								class="cursor-pointer text-sm font-normal text-black underline-offset-4 hover:font-bold hover:underline"
-								href={broadcaster.linkClips}
-							>
-								{broadcaster.userName}
-							</a>
+							<li>
+								<Link className="text-sm font-normal text-black" href={broadcaster.linkClips}>
+									{broadcaster.userName}
+								</Link>
+							</li>
 						{/each}
-					</div>
-				</div>
+					</ul>
+				</svelte:fragment>
 			</Dropdown>
-
 			<Dropdown>
-				<span slot="trigger" class="flex items-center text-sm font-normal text-black">
-					Hall of Fame<ChevronDown class="ml-1 h-4 w-4 text-black" />
-				</span>
-
-				<div slot="items" class="border-2 border-black bg-[#FFF59F] p-2 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
-					<div class="flex flex-col">
+				<svelte:fragment slot="trigger">
+					<span class="flex items-center text-sm font-normal text-black">
+						Hall of Fame<ChevronDown class="ml-1 h-4 w-4 text-black" />
+					</span>
+				</svelte:fragment>
+				<svelte:fragment slot="items">
+					<ul class="list-none border-2 border-black bg-[#FFF59F] p-2 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
 						{#each data.broadcasters as broadcaster (broadcaster.broadcasterId)}
-							<a
-								class="cursor-pointer text-sm font-normal text-black underline-offset-4 hover:font-bold hover:underline"
-								href={broadcaster.linkClips}
-							>
-								{broadcaster.userName}
-							</a>
+							<li>
+								<Link className="text-sm font-normal text-black" href={broadcaster.linkClips}>
+									{broadcaster.userName}
+								</Link>
+							</li>
 						{/each}
-					</div>
-				</div>
+					</ul>
+				</svelte:fragment>
 			</Dropdown>
 		</div>
 	</div>

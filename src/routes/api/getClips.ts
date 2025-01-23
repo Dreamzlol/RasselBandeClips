@@ -29,6 +29,7 @@ export const getClips = async (broadcaster_id: string, clipCount: string, dateRa
 	}
 
 	const data = await response.json()
+	
 	return data.data.map((clip: TwitchClip) => ({
 		slug: clip.id,
 		embedUrl: clip.embed_url,

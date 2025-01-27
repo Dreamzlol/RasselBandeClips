@@ -47,7 +47,6 @@ module.exports = {
 		'svelte/require-event-dispatcher-types': 'error',
 		'svelte/require-optimized-style-attribute': 'error',
 		'svelte/require-stores-init': 'error',
-		'svelte/valid-each-key': 'error',
-		'svelte/sort-attributes': 'error'
+		'svelte/valid-each-key': 'error'
 	}
 }

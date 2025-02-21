@@ -1,0 +1,26 @@
+# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+!src/
+!src/lib/
+!src/routes/
+.clinerules
+.prettierrc
+README.md
+.gitignore
+package.json
+.npmrc
+.prettierignore
+.eslintrc.cjs
+.vscode/settings.json
+postcss.config.js
+src/app.d.ts
+src/app.css
+tsconfig.json
+.eslintignore
+playwright.config.ts
+.env.example
+vite.config.ts
+.cursorignore
+src/app.html
+svelte.config.js
+tailwind.config.js
+components.json
